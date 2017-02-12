@@ -18,22 +18,18 @@ namespace RezerwacjeService
             return null;
         }
 
-        public String Login(string login, string password)
+        List<Users> IUsersService.FindAll(String sessionId)
         {
-            return UserAuthFactory.Instance.loginUser(login, password);
-        }
-
-        List<Users> IUsersService.FindAll()
-        {
+            if()
             return UsersFactory.Instance.FindAll();
         }
 
-        Users IUsersService.FindByLogin(string login)
+        Users IUsersService.FindByLogin(String sessionId, String login)
         {
             return UsersFactory.Instance.FindByLogin(login);
         }
 
-        bool IUsersService.isAdmin(string login)
+        bool IUsersService.isAdmin(String sessionId, String login)
         {
             return UsersFactory.Instance.isAdmin(login);
         }

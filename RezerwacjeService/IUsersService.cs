@@ -8,26 +8,21 @@ using System.Text;
 
 namespace RezerwacjeService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    [ServiceContract(SessionMode = SessionMode.Required)]
+    [ServiceContract]
     public interface IUsersService
     {
-        [OperationContract]
-        String Login(String login, String password);
 
         [OperationContract]
-        List<Users> FindAll();
+        List<Users> FindAll(String sessionId);
 
         [OperationContract]
-        Users FindByLogin(String login);
+        Users FindByLogin(String sessionId, String login);
 
         [OperationContract]
-        bool isAdmin(String login);
+        bool isAdmin(String sessionID, String login);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
-
-        // TODO: Add your service operations here
     }
 
 

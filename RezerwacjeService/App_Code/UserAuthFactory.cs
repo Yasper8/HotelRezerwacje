@@ -39,5 +39,10 @@ namespace RezerwacjeService
 
             return null;
         }
+
+        public bool isAuth(String sessionId)
+        {
+            return sessions.ContainsKey(sessionId);
+        }
     }
 }

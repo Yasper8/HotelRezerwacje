@@ -8,10 +8,10 @@ using System.Text;
 namespace RezerwacjeService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IAuthService" in both code and config file together.
-    [ServiceContract]
+    [ServiceContract(SessionMode = SessionMode.Required)]
     public interface IAuthService
     {
         [OperationContract]
-        void DoWork();
+        String Login(String login, String password);
     }
 }

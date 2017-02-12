@@ -9,12 +9,20 @@ using System.Text;
 namespace RezerwacjeService
 {
     // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
-    [ServiceContract]
+    [ServiceContract(SessionMode = SessionMode.Required)]
     public interface IUsersService
     {
+        [OperationContract]
+        String Login(String login, String password);
 
         [OperationContract]
-        string GetData(int value);
+        List<Users> FindAll();
+
+        [OperationContract]
+        Users FindByLogin(String login);
+
+        [OperationContract]
+        bool isAdmin(String login);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);

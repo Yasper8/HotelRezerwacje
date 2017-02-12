@@ -78,6 +78,7 @@
     <Content Include="App_Data\RezerwacjeDatabase_log.ldf">
       <DependentUpon>RezerwacjeDatabase.mdf</DependentUpon>
     </Content>
+    <Content Include="AuthService.svc" />
     <Content Include="RezerwacjeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RezerwacjeModel.edmx</DependentUpon>
@@ -92,6 +93,10 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AuthService.svc.cs">
+      <DependentUpon>AuthService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="IAuthService.cs" />
     <Compile Include="RezerwacjeModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,10 +112,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RezerwacjeModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="App_Code\UserAuthentication.cs" />
+    <Compile Include="App_Code\UserAuthFactory.cs" />
     <Compile Include="Users.cs">
       <DependentUpon>RezerwacjeModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\UsersFactory.cs" />
     <Compile Include="UsersService.svc.cs">
       <DependentUpon>UsersService.svc</DependentUpon>
     </Compile>

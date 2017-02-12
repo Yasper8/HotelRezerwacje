@@ -13,7 +13,11 @@ namespace RezerwacjeService
     {
         public string GetData(int value)
         {
-            return string.Format("You entered: {0}", value);
+            using (var dbContext = new RezerwacjeDatabaseEntities())
+            {
+                Users user = dbContext.Users.First();
+                return user.Login;
+            }
         }
 
         public CompositeType GetDataUsingDataContract(CompositeType composite)

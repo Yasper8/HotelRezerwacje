@@ -20,17 +20,28 @@ namespace RezerwacjeService
 
         List<Users> IUsersService.FindAll(String sessionId)
         {
-            if()
+            if (!UserAuthFactory.Instance.isAuth(sessionId))
+            {
+                return null;
+            }
             return UsersFactory.Instance.FindAll();
         }
 
         Users IUsersService.FindByLogin(String sessionId, String login)
         {
+            if (!UserAuthFactory.Instance.isAuth(sessionId))
+            {
+                return null;
+            }
             return UsersFactory.Instance.FindByLogin(login);
         }
 
         bool IUsersService.isAdmin(String sessionId, String login)
         {
+            if (!UserAuthFactory.Instance.isAuth(sessionId))
+            {
+                return false;
+            }
             return UsersFactory.Instance.isAdmin(login);
         }
     }

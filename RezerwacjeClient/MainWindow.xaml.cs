@@ -24,11 +24,37 @@ namespace RezerwacjeClient
         public MainWindow()
         {
             InitializeComponent();
-            UsersServiceClient client = new UsersServiceClient();
+            //UsersServiceClient client = new UsersServiceClient();
 
-            bool result = client.isAdmin("Admin");
-            Console.WriteLine("The flipped case is " + result);
-            Console.ReadLine();
+            //bool result = client.isAdmin("Admin");
+            //Console.WriteLine("The flipped case is " + result);
+            //Console.ReadLine();
+        }
+
+        private void MenuExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void MenuLogout_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Properties[App.sessionPropertyName] = null;
+
+            Login loginWindow = new Login();
+            loginWindow.Show();
+            this.Close();
+        }
+
+        private void MenuCustomer_Click(object sender, RoutedEventArgs e)
+        {
+            Customer cutomerWindow = new Customer();
+            cutomerWindow.Show();
+        }
+
+        private void MenuRoom_Click(object sender, RoutedEventArgs e)
+        {
+            Room roomWindow = new Room();
+            roomWindow.Show();
         }
     }
 }

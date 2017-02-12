@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RezerwacjeClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+        Title="MainWindow" Height="501.906" Width="1051.539">
+
+    <Menu IsMainMenu="True">
+        <MenuItem Header="_Plik">
+            <MenuItem x:Name="MenuLogout" Header="Wy_loguj" Click="MenuLogout_Click" />
+            <Separator />
+            <MenuItem x:Name="MenuExit" Header="_Wyjdz" Click="MenuExit_Click" />
+        </MenuItem>
+
+        <MenuItem Header="_Edytuj">
+            <MenuItem x:Name="MenuCustomer" Header="_Klient" Click="MenuCustomer_Click" />
+            <MenuItem x:Name="MenuRoom" Header="_Pokój" Click="MenuRoom_Click" />
+        </MenuItem>
+    </Menu>
+
 </Window>

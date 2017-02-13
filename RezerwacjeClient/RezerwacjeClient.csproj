@@ -76,6 +76,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\RoomsServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\UsersServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -156,6 +161,19 @@
     <None Include="Service References\CustomerServiceReference\RezerwacjeClient.CustomerServiceReference.Customers.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\RoomsServiceReference\RezerwacjeClient.RoomsServiceReference.Rooms.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RoomsServiceReference\RoomsService.wsdl" />
+    <None Include="Service References\RoomsServiceReference\RoomsService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RoomsServiceReference\RoomsService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\RoomsServiceReference\RoomsService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Service References\UsersServiceReference\RezerwacjeClient.UsersServiceReference.CompositeType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
@@ -182,6 +200,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AuthServiceReference\" />
     <WCFMetadataStorage Include="Service References\CustomerServiceReference\" />
+    <WCFMetadataStorage Include="Service References\RoomsServiceReference\" />
     <WCFMetadataStorage Include="Service References\UsersServiceReference\" />
   </ItemGroup>
   <ItemGroup>
@@ -225,6 +244,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\CustomerServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RoomsServiceReference\RoomsService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RoomsServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RoomsServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\RoomsServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

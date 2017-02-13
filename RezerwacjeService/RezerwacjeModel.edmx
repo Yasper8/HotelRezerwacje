@@ -15,6 +15,16 @@
           <Property Name="Telephone" Type="varchar" MaxLength="50" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Rooms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="Floor" Type="int" Nullable="false" />
+          <Property Name="BedNo" Type="int" Nullable="false" />
+          <Property Name="BathNo" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
@@ -26,6 +36,7 @@
         </EntityType>
         <EntityContainer Name="RezerwacjeDatabaseModelStoreContainer">
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -45,11 +56,8 @@
         <EntityContainer Name="RezerwacjeDatabaseEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Customers" EntityType="Self.Customers" />
           <EntitySet Name="Users" EntityType="RezerwacjeDatabaseModel.Users" />
+          <EntitySet Name="Rooms" EntityType="RezerwacjeDatabaseModel.Rooms" />
         </EntityContainer>
-        <EnumType Name="Type">
-          <Member Name="ADMIN" Value="1" />
-          <Member Name="USER" Value="2" />
-        </EnumType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="Id" />
@@ -63,6 +71,16 @@
           <Member Name="ADMIN" Value="1" />
           <Member Name="USER" Value="2" />
         </EnumType>
+        <EntityType Name="Rooms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="Floor" Type="Int32" Nullable="false" />
+          <Property Name="BedNo" Type="Int32" Nullable="false" />
+          <Property Name="BathNo" Type="Int32" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -86,6 +104,17 @@
                 <ScalarProperty Name="Type" ColumnName="Type" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rooms">
+            <EntityTypeMapping TypeName="RezerwacjeDatabaseModel.Rooms">
+              <MappingFragment StoreEntitySet="Rooms">
+                <ScalarProperty Name="BathNo" ColumnName="BathNo" />
+                <ScalarProperty Name="BedNo" ColumnName="BedNo" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

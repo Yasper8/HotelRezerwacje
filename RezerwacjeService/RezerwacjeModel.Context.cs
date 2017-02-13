@@ -27,5 +27,6 @@ namespace RezerwacjeService
     
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Rooms> Rooms { get; set; }
     }
 }

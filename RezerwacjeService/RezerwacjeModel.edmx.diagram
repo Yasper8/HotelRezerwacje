@@ -7,6 +7,7 @@
       <Diagram DiagramId="9c9aa9d4b93e47bf831ff5b541c5a8ab" Name="Diagram1">
         <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Customers" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Users" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Rooms" Width="1.5" PointX="6.125" PointY="1" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

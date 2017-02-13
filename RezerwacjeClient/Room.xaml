@@ -5,8 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RezerwacjeClient"
         mc:Ignorable="d"
-        Title="Room" Height="300" Width="300">
+        Title="Room" Height="326.393" Width="695.894">
     <Grid>
-        
+        <DataGrid x:Name="CustomersDataGrid" HorizontalAlignment="Left" Height="275" Margin="263,10,0,0" VerticalAlignment="Top" Width="415" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="CustomersGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Numer" Binding="{Binding Number}" Width="1*" />
+                <DataGridTextColumn Header="Piętro" Binding="{Binding Floor}" Width="1*" />
+                <DataGridTextColumn Header="Ilość łóżek" Binding="{Binding BedNo}" Width="1*" />
+                <DataGridTextColumn Header="Ilość łazienek" Binding="{Binding BathNo}" Width="1*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid HorizontalAlignment="Left" Height="275" Margin="10,10,0,0" VerticalAlignment="Top" Width="248">
+            <TextBox x:Name="textBoxNumber" HorizontalAlignment="Left" Height="23" Margin="118,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.406,-0.059"/>
+            <TextBox x:Name="textBoxFloor" HorizontalAlignment="Left" Height="23" Margin="118,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="textBoxBedNo" HorizontalAlignment="Left" Height="23" Margin="118,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="textBoxBathNo" HorizontalAlignment="Left" Height="23" Margin="118,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <Label x:Name="labelNumber" Content="Numer" HorizontalAlignment="Left" Margin="32,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.997,0.629" Width="68"/>
+            <Label x:Name="labelFloor" Content="Piętro" HorizontalAlignment="Left" Margin="32,38,0,0" VerticalAlignment="Top" Width="62"/>
+            <Label x:Name="labelBedNo" Content="Ilość łóżek" HorizontalAlignment="Left" Margin="32,66,0,0" VerticalAlignment="Top" Width="86"/>
+            <Label x:Name="labelBathNo" Content="Ilość łazienek" HorizontalAlignment="Left" Margin="32,94,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.094,0.611" Width="81"/>
+            <Button x:Name="buttonUpdate" Content="Zapisz" HorizontalAlignment="Left" Margin="163,245,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdate_Click"/>
+            <Button x:Name="buttonAdd" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="83,245,0,0" Click="buttonAdd_Click"/>
+        </Grid>
+
     </Grid>
 </Window>

@@ -25,6 +25,7 @@ namespace RezerwacjeService
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Users> Users { get; set; }
     }
 }

@@ -37,7 +37,7 @@ namespace RezerwacjeService.Factory
         {
             using (var dbContext = new RezerwacjeDatabaseEntities())
             {
-                Users user = (from u in dbContext.Users where u.Login == login select u).Single();
+                Users user = (from u in dbContext.Users where u.Login == login select u).FirstOrDefault();
                 return user;
             }
         }
@@ -46,7 +46,7 @@ namespace RezerwacjeService.Factory
         {
             using (var dbContext = new RezerwacjeDatabaseEntities())
             {
-                Boolean userIsAdmin = (from u in dbContext.Users where u.Login == login && u.Type == "ADMIN" select u).Any();
+                Boolean userIsAdmin = (from u in dbContext.Users where u.Login == login && u.Type == UserType.ADMIN select u).Any();
                 return userIsAdmin;
             }
         }

@@ -66,7 +66,17 @@
     <Compile Include="Room.xaml.cs">
       <DependentUpon>Room.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ServiceReference1\Reference.cs">
+    <Compile Include="Service References\AuthServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\CustomerServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\UsersServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -126,20 +136,40 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\ServiceReference1\RezerwacjeClient.ServiceReference1.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\RezerwacjeClient.ServiceReference1.Users.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\ServiceReference1\UsersService.wsdl" />
-    <None Include="Service References\ServiceReference1\UsersService.xsd">
+    <None Include="Service References\AuthServiceReference\AuthService.wsdl" />
+    <None Include="Service References\AuthServiceReference\AuthService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\UsersService1.xsd">
+    <None Include="Service References\AuthServiceReference\AuthService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\ServiceReference1\UsersService2.xsd">
+    <None Include="Service References\CustomerServiceReference\CustomerService.wsdl" />
+    <None Include="Service References\CustomerServiceReference\CustomerService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerServiceReference\CustomerService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerServiceReference\CustomerService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\CustomerServiceReference\RezerwacjeClient.CustomerServiceReference.Customers.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UsersServiceReference\RezerwacjeClient.UsersServiceReference.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UsersServiceReference\RezerwacjeClient.UsersServiceReference.Users.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\UsersServiceReference\UsersService.wsdl" />
+    <None Include="Service References\UsersServiceReference\UsersService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsersServiceReference\UsersService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\UsersServiceReference\UsersService2.xsd">
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
@@ -150,19 +180,51 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+    <WCFMetadataStorage Include="Service References\AuthServiceReference\" />
+    <WCFMetadataStorage Include="Service References\CustomerServiceReference\" />
+    <WCFMetadataStorage Include="Service References\UsersServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\UsersService.disco" />
+    <None Include="Service References\UsersServiceReference\UsersService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+    <None Include="Service References\UsersServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+    <None Include="Service References\UsersServiceReference\configuration.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Service References\ServiceReference1\Reference.svcmap">
+    <None Include="Service References\UsersServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthServiceReference\AuthService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\AuthServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CustomerServiceReference\CustomerService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CustomerServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CustomerServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\CustomerServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

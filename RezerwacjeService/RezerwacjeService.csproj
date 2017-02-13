@@ -79,6 +79,7 @@
       <DependentUpon>RezerwacjeDatabase.mdf</DependentUpon>
     </Content>
     <Content Include="AuthService.svc" />
+    <Content Include="CustomerService.svc" />
     <Content Include="RezerwacjeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RezerwacjeModel.edmx</DependentUpon>
@@ -96,7 +97,17 @@
     <Compile Include="AuthService.svc.cs">
       <DependentUpon>AuthService.svc</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\CustomerFactory.cs" />
+    <Compile Include="Customers.cs">
+      <DependentUpon>RezerwacjeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerService.svc.cs">
+      <DependentUpon>CustomerService.svc</DependentUpon>
+    </Compile>
     <Compile Include="IAuthService.cs" />
+    <Compile Include="ICustomerService.cs" />
+    <Compile Include="App_Code\UserAuthFactory.cs" />
+    <Compile Include="App_Code\UsersFactory.cs" />
     <Compile Include="RezerwacjeModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -112,26 +123,27 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RezerwacjeModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="App_Code\UserAuthFactory.cs" />
     <Compile Include="Users.cs">
       <DependentUpon>RezerwacjeModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="App_Code\UsersFactory.cs" />
     <Compile Include="UsersService.svc.cs">
       <DependentUpon>UsersService.svc</DependentUpon>
     </Compile>
     <Compile Include="IUsersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserType.cs">
+      <DependentUpon>RezerwacjeModel.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="packages.config" />
     <EntityDeploy Include="RezerwacjeModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>RezerwacjeModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="packages.config" />
     <Content Include="RezerwacjeModel.edmx.diagram">
       <DependentUpon>RezerwacjeModel.edmx</DependentUpon>
     </Content>

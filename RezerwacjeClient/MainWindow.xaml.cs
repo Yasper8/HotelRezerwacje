@@ -1,4 +1,4 @@
-﻿using RezerwacjeClient.ServiceReference1;
+﻿using RezerwacjeClient.UsersServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;

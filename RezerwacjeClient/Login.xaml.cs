@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RezerwacjeClient.AuthServiceReference;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,13 +28,24 @@ namespace RezerwacjeClient
         private void butLoggin_Click(object sender, RoutedEventArgs e)
         {
             String login = TBoxLogin.Text;
-            String password = TBoxPass.Text;
+            String password = TBoxPass.Password;
 
-            App.Current.Properties[App.sessionPropertyName] = "fhgjhkkjk";
+            AuthServiceClient client = new AuthServiceClient();
 
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
+            String sessionId = client.Login(login, password);
+            if(sessionId != null)
+            {
+                App.Current.Properties[App.sessionPropertyName] = sessionId;
+
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                LabelErrorLogin.Visibility = Visibility.Visible;
+            }
+
         }
 
         private void butExit_Click(object sender, RoutedEventArgs e)

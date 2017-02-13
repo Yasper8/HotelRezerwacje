@@ -10,13 +10,10 @@
 namespace RezerwacjeService
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Users
+    public enum UserType : int
     {
-        public int Id { get; set; }
-        public string Login { get; set; }
-        public string Password { get; set; }
-        public UserType Type { get; set; }
+        ADMIN = 1,
+        USER = 2
     }
 }

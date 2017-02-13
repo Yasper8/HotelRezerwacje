@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RezerwacjeClient.ServiceReference1 {
+namespace RezerwacjeClient.UsersServiceReference {
     using System.Runtime.Serialization;
     using System;
     
@@ -168,41 +168,41 @@ namespace RezerwacjeClient.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IUsersService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="UsersServiceReference.IUsersService")]
     public interface IUsersService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/FindAll", ReplyAction="http://tempuri.org/IUsersService/FindAllResponse")]
-        RezerwacjeClient.ServiceReference1.Users[] FindAll();
+        RezerwacjeClient.UsersServiceReference.Users[] FindAll(string sessionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/FindAll", ReplyAction="http://tempuri.org/IUsersService/FindAllResponse")]
-        System.Threading.Tasks.Task<RezerwacjeClient.ServiceReference1.Users[]> FindAllAsync();
+        System.Threading.Tasks.Task<RezerwacjeClient.UsersServiceReference.Users[]> FindAllAsync(string sessionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/FindByLogin", ReplyAction="http://tempuri.org/IUsersService/FindByLoginResponse")]
-        RezerwacjeClient.ServiceReference1.Users FindByLogin(string login);
+        RezerwacjeClient.UsersServiceReference.Users FindByLogin(string sessionId, string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/FindByLogin", ReplyAction="http://tempuri.org/IUsersService/FindByLoginResponse")]
-        System.Threading.Tasks.Task<RezerwacjeClient.ServiceReference1.Users> FindByLoginAsync(string login);
+        System.Threading.Tasks.Task<RezerwacjeClient.UsersServiceReference.Users> FindByLoginAsync(string sessionId, string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/isAdmin", ReplyAction="http://tempuri.org/IUsersService/isAdminResponse")]
-        bool isAdmin(string login);
+        bool isAdmin(string sessionID, string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/isAdmin", ReplyAction="http://tempuri.org/IUsersService/isAdminResponse")]
-        System.Threading.Tasks.Task<bool> isAdminAsync(string login);
+        System.Threading.Tasks.Task<bool> isAdminAsync(string sessionID, string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IUsersService/GetDataUsingDataContractResponse")]
-        RezerwacjeClient.ServiceReference1.CompositeType GetDataUsingDataContract(RezerwacjeClient.ServiceReference1.CompositeType composite);
+        RezerwacjeClient.UsersServiceReference.CompositeType GetDataUsingDataContract(RezerwacjeClient.UsersServiceReference.CompositeType composite);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IUsersService/GetDataUsingDataContractResponse")]
-        System.Threading.Tasks.Task<RezerwacjeClient.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(RezerwacjeClient.ServiceReference1.CompositeType composite);
+        System.Threading.Tasks.Task<RezerwacjeClient.UsersServiceReference.CompositeType> GetDataUsingDataContractAsync(RezerwacjeClient.UsersServiceReference.CompositeType composite);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IUsersServiceChannel : RezerwacjeClient.ServiceReference1.IUsersService, System.ServiceModel.IClientChannel {
+    public interface IUsersServiceChannel : RezerwacjeClient.UsersServiceReference.IUsersService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class UsersServiceClient : System.ServiceModel.ClientBase<RezerwacjeClient.ServiceReference1.IUsersService>, RezerwacjeClient.ServiceReference1.IUsersService {
+    public partial class UsersServiceClient : System.ServiceModel.ClientBase<RezerwacjeClient.UsersServiceReference.IUsersService>, RezerwacjeClient.UsersServiceReference.IUsersService {
         
         public UsersServiceClient() {
         }
@@ -223,35 +223,35 @@ namespace RezerwacjeClient.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public RezerwacjeClient.ServiceReference1.Users[] FindAll() {
-            return base.Channel.FindAll();
+        public RezerwacjeClient.UsersServiceReference.Users[] FindAll(string sessionId) {
+            return base.Channel.FindAll(sessionId);
         }
         
-        public System.Threading.Tasks.Task<RezerwacjeClient.ServiceReference1.Users[]> FindAllAsync() {
-            return base.Channel.FindAllAsync();
+        public System.Threading.Tasks.Task<RezerwacjeClient.UsersServiceReference.Users[]> FindAllAsync(string sessionId) {
+            return base.Channel.FindAllAsync(sessionId);
         }
         
-        public RezerwacjeClient.ServiceReference1.Users FindByLogin(string login) {
-            return base.Channel.FindByLogin(login);
+        public RezerwacjeClient.UsersServiceReference.Users FindByLogin(string sessionId, string login) {
+            return base.Channel.FindByLogin(sessionId, login);
         }
         
-        public System.Threading.Tasks.Task<RezerwacjeClient.ServiceReference1.Users> FindByLoginAsync(string login) {
-            return base.Channel.FindByLoginAsync(login);
+        public System.Threading.Tasks.Task<RezerwacjeClient.UsersServiceReference.Users> FindByLoginAsync(string sessionId, string login) {
+            return base.Channel.FindByLoginAsync(sessionId, login);
         }
         
-        public bool isAdmin(string login) {
-            return base.Channel.isAdmin(login);
+        public bool isAdmin(string sessionID, string login) {
+            return base.Channel.isAdmin(sessionID, login);
         }
         
-        public System.Threading.Tasks.Task<bool> isAdminAsync(string login) {
-            return base.Channel.isAdminAsync(login);
+        public System.Threading.Tasks.Task<bool> isAdminAsync(string sessionID, string login) {
+            return base.Channel.isAdminAsync(sessionID, login);
         }
         
-        public RezerwacjeClient.ServiceReference1.CompositeType GetDataUsingDataContract(RezerwacjeClient.ServiceReference1.CompositeType composite) {
+        public RezerwacjeClient.UsersServiceReference.CompositeType GetDataUsingDataContract(RezerwacjeClient.UsersServiceReference.CompositeType composite) {
             return base.Channel.GetDataUsingDataContract(composite);
         }
         
-        public System.Threading.Tasks.Task<RezerwacjeClient.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(RezerwacjeClient.ServiceReference1.CompositeType composite) {
+        public System.Threading.Tasks.Task<RezerwacjeClient.UsersServiceReference.CompositeType> GetDataUsingDataContractAsync(RezerwacjeClient.UsersServiceReference.CompositeType composite) {
             return base.Channel.GetDataUsingDataContractAsync(composite);
         }
     }

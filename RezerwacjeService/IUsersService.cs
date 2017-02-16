@@ -11,40 +11,28 @@ namespace RezerwacjeService
     [ServiceContract]
     public interface IUsersService
     {
-
         [OperationContract]
-        List<Users> FindAll(String sessionId);
-
+        List<UserWraper> FindAll(String sessionId);
         [OperationContract]
-        Users FindByLogin(String sessionId, String login);
-
+        UserWraper FindByLogin(String sessionId, String login);
         [OperationContract]
         bool isAdmin(String sessionID, String login);
-
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
     }
 
-
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
-    public class CompositeType
+    public class UserWraper
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
         [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
+        public int Id { get; set; }
         [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        public string Login { get; set; }
+        [DataMember]
+        public string Password { get; set; }
+        [DataMember]
+        public UserType Type { get; set; }
+        [DataMember]
+        public string Firstname { get; set; }
+        [DataMember]
+        public string Surname { get; set; }
     }
 }

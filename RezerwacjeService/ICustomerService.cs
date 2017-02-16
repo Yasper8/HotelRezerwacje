@@ -7,17 +7,31 @@ using System.Text;
 
 namespace RezerwacjeService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "ICustomerService" in both code and config file together.
     [ServiceContract]
     public interface ICustomerService
     {
         [OperationContract]
-        List<Customers> FindAll(String sessionId);
+        List<CustomerWraper> FindAll(String sessionId);
 
         [OperationContract]
-        Customers FindById(String sessionId, int id);
+        CustomerWraper FindById(String sessionId, int id);
 
         [OperationContract]
-        int Save(String sessionId, Customers customer);
+        int Save(String sessionId, CustomerWraper customer);
+    }
+
+    [DataContract]
+    public class CustomerWraper
+    {
+        [DataMember]
+        public int Id { get; set; }
+        [DataMember]
+        public string FirstName { get; set; }
+        [DataMember]
+        public string Surname { get; set; }
+        [DataMember]
+        public string Telephone { get; set; }
+        [DataMember]
+        public string Email { get; set; }
     }
 }

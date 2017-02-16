@@ -11,7 +11,7 @@
   <xs:element name="FindAllResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RezerwacjeService" minOccurs="0" name="FindAllResult" nillable="true" type="q1:ArrayOfRooms" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/RezerwacjeService" minOccurs="0" name="FindAllResult" nillable="true" type="q1:ArrayOfRoomWraper" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -26,7 +26,7 @@
   <xs:element name="FindByIdResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RezerwacjeService" minOccurs="0" name="FindByIdResult" nillable="true" type="q2:Rooms" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/RezerwacjeService" minOccurs="0" name="FindByIdResult" nillable="true" type="q2:RoomWraper" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -34,7 +34,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/RezerwacjeService" minOccurs="0" name="room" nillable="true" type="q3:Rooms" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/RezerwacjeService" minOccurs="0" name="room" nillable="true" type="q3:RoomWraper" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

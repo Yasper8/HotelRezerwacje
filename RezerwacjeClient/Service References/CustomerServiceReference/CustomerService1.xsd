@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RezerwacjeService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RezerwacjeService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOfCustomers">
+  <xs:complexType name="ArrayOfCustomerWraper">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Customers" nillable="true" type="tns:Customers" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerWraper" nillable="true" type="tns:CustomerWraper" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfCustomers" nillable="true" type="tns:ArrayOfCustomers" />
-  <xs:complexType name="Customers">
+  <xs:element name="ArrayOfCustomerWraper" nillable="true" type="tns:ArrayOfCustomerWraper" />
+  <xs:complexType name="CustomerWraper">
     <xs:sequence>
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
@@ -15,5 +15,5 @@
       <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Customers" nillable="true" type="tns:Customers" />
+  <xs:element name="CustomerWraper" nillable="true" type="tns:CustomerWraper" />
 </xs:schema>

@@ -7,35 +7,55 @@ using System.Text;
 
 namespace RezerwacjeService
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "CustomerService" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select CustomerService.svc or CustomerService.svc.cs at the Solution Explorer and start debugging.
+
     public class CustomerService : ICustomerService
     {
-        List<Customers> ICustomerService.FindAll(string sessionId)
+        public Func<Customers, CustomerWraper> convert = customer => new CustomerWraper()
+        {
+            Id = customer.Id,
+            FirstName = customer.FirstName,
+            Surname = customer.Surname,
+            Telephone = customer.Telephone,
+            Email = customer.Email
+        };
+
+        public Func<CustomerWraper, Customers> reconvert = customer => new Customers()
+        {
+            Id = customer.Id,
+            FirstName = customer.FirstName,
+            Surname = customer.Surname,
+            Telephone = customer.Telephone,
+            Email = customer.Email
+        };
+
+        List<CustomerWraper> ICustomerService.FindAll(string sessionId)
         {
             if (!UserAuthFactory.Instance.isAuth(sessionId))
             {
                 return null;
             }
-            return CustomerFactory.Instance.FindAll();
+            List<Customers> customersEntites = CustomerFactory.Instance.FindAll();
+            return customersEntites.Select(convert).ToList();
         }
 
-        public Customers FindById(string sessionId, int id)
+        public CustomerWraper FindById(string sessionId, int id)
         {
             if (!UserAuthFactory.Instance.isAuth(sessionId))
             {
                 return null;
             }
-            return CustomerFactory.Instance.FindById(id);
+            Customers customerEntity = CustomerFactory.Instance.FindById(id);
+            return convert(customerEntity);
         }
 
-        public int Save(string sessionId, Customers customer)
+        public int Save(string sessionId, CustomerWraper customer)
         {
             if (!UserAuthFactory.Instance.isAuth(sessionId))
             {
                 return 0;
             }
-            return CustomerFactory.Instance.Save(customer);
+            Customers customerEntity = reconvert(customer);
+            return CustomerFactory.Instance.Save(customerEntity);
         }
     }
 }

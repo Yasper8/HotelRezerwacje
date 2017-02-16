@@ -1,4 +1,5 @@
-﻿using RezerwacjeClient.UsersServiceReference;
+﻿using RezerwacjeClient.ReserversionsServiceReference;
+using RezerwacjeClient.UsersServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,19 +17,14 @@ using System.Windows.Shapes;
 
 namespace RezerwacjeClient
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
-            //UsersServiceClient client = new UsersServiceClient();
-
-            //bool result = client.isAdmin("Admin");
-            //Console.WriteLine("The flipped case is " + result);
-            //Console.ReadLine();
+            ReserversionsServiceClient client = new ReserversionsServiceClient();
+            String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
+            //ReserverionsDataGrid.ItemsSource = client.FindAll(sessionId);
         }
 
         private void MenuExit_Click(object sender, RoutedEventArgs e)
@@ -55,6 +51,21 @@ namespace RezerwacjeClient
         {
             Room roomWindow = new Room();
             roomWindow.Show();
+        }
+
+        private void ReserversionsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void buttonUpdate_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonAdd_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

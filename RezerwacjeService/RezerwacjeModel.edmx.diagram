@@ -4,11 +4,15 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9c9aa9d4b93e47bf831ff5b541c5a8ab" Name="Diagram1">
-        <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Customers" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Users" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Rooms" Width="1.5" PointX="6.125" PointY="1" />
-      </Diagram>
+      <Diagram DiagramId="fcdcfb893681485d8b7af90603dd8cac" Name="Diagram1">
+        <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Customers" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Rooms" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Users" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Reserversions" Width="1.5" PointX="5.375" PointY="3.25" />
+        <AssociationConnector Association="RezerwacjeDatabaseModel.FK_Customer" />
+        <AssociationConnector Association="RezerwacjeDatabaseModel.FK_Modyfied" />
+        <AssociationConnector Association="RezerwacjeDatabaseModel.FK_Room" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

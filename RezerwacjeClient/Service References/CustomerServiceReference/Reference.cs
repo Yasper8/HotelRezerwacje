@@ -15,9 +15,9 @@ namespace RezerwacjeClient.CustomerServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Customers", Namespace="http://schemas.datacontract.org/2004/07/RezerwacjeService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CustomerWraper", Namespace="http://schemas.datacontract.org/2004/07/RezerwacjeService")]
     [System.SerializableAttribute()]
-    public partial class Customers : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class CustomerWraper : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -127,22 +127,22 @@ namespace RezerwacjeClient.CustomerServiceReference {
     public interface ICustomerService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/FindAll", ReplyAction="http://tempuri.org/ICustomerService/FindAllResponse")]
-        RezerwacjeClient.CustomerServiceReference.Customers[] FindAll(string sessionId);
+        RezerwacjeClient.CustomerServiceReference.CustomerWraper[] FindAll(string sessionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/FindAll", ReplyAction="http://tempuri.org/ICustomerService/FindAllResponse")]
-        System.Threading.Tasks.Task<RezerwacjeClient.CustomerServiceReference.Customers[]> FindAllAsync(string sessionId);
+        System.Threading.Tasks.Task<RezerwacjeClient.CustomerServiceReference.CustomerWraper[]> FindAllAsync(string sessionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/FindById", ReplyAction="http://tempuri.org/ICustomerService/FindByIdResponse")]
-        RezerwacjeClient.CustomerServiceReference.Customers FindById(string sessionId, int id);
+        RezerwacjeClient.CustomerServiceReference.CustomerWraper FindById(string sessionId, int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/FindById", ReplyAction="http://tempuri.org/ICustomerService/FindByIdResponse")]
-        System.Threading.Tasks.Task<RezerwacjeClient.CustomerServiceReference.Customers> FindByIdAsync(string sessionId, int id);
+        System.Threading.Tasks.Task<RezerwacjeClient.CustomerServiceReference.CustomerWraper> FindByIdAsync(string sessionId, int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Save", ReplyAction="http://tempuri.org/ICustomerService/SaveResponse")]
-        int Save(string sessionId, RezerwacjeClient.CustomerServiceReference.Customers customer);
+        int Save(string sessionId, RezerwacjeClient.CustomerServiceReference.CustomerWraper customer);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICustomerService/Save", ReplyAction="http://tempuri.org/ICustomerService/SaveResponse")]
-        System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.CustomerServiceReference.Customers customer);
+        System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.CustomerServiceReference.CustomerWraper customer);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -172,27 +172,27 @@ namespace RezerwacjeClient.CustomerServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public RezerwacjeClient.CustomerServiceReference.Customers[] FindAll(string sessionId) {
+        public RezerwacjeClient.CustomerServiceReference.CustomerWraper[] FindAll(string sessionId) {
             return base.Channel.FindAll(sessionId);
         }
         
-        public System.Threading.Tasks.Task<RezerwacjeClient.CustomerServiceReference.Customers[]> FindAllAsync(string sessionId) {
+        public System.Threading.Tasks.Task<RezerwacjeClient.CustomerServiceReference.CustomerWraper[]> FindAllAsync(string sessionId) {
             return base.Channel.FindAllAsync(sessionId);
         }
         
-        public RezerwacjeClient.CustomerServiceReference.Customers FindById(string sessionId, int id) {
+        public RezerwacjeClient.CustomerServiceReference.CustomerWraper FindById(string sessionId, int id) {
             return base.Channel.FindById(sessionId, id);
         }
         
-        public System.Threading.Tasks.Task<RezerwacjeClient.CustomerServiceReference.Customers> FindByIdAsync(string sessionId, int id) {
+        public System.Threading.Tasks.Task<RezerwacjeClient.CustomerServiceReference.CustomerWraper> FindByIdAsync(string sessionId, int id) {
             return base.Channel.FindByIdAsync(sessionId, id);
         }
         
-        public int Save(string sessionId, RezerwacjeClient.CustomerServiceReference.Customers customer) {
+        public int Save(string sessionId, RezerwacjeClient.CustomerServiceReference.CustomerWraper customer) {
             return base.Channel.Save(sessionId, customer);
         }
         
-        public System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.CustomerServiceReference.Customers customer) {
+        public System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.CustomerServiceReference.CustomerWraper customer) {
             return base.Channel.SaveAsync(sessionId, customer);
         }
     }

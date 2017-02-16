@@ -76,6 +76,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Service References\ReserversionsServiceReference\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Service References\RoomsServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -158,10 +163,23 @@
     <None Include="Service References\CustomerServiceReference\CustomerService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\CustomerServiceReference\RezerwacjeClient.CustomerServiceReference.Customers.datasource">
+    <None Include="Service References\CustomerServiceReference\RezerwacjeClient.CustomerServiceReference.CustomerWraper.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\RoomsServiceReference\RezerwacjeClient.RoomsServiceReference.Rooms.datasource">
+    <None Include="Service References\ReserversionsServiceReference\ReserversionsService.wsdl" />
+    <None Include="Service References\ReserversionsServiceReference\ReserversionsService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReserversionsServiceReference\ReserversionsService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReserversionsServiceReference\ReserversionsService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ReserversionsServiceReference\RezerwacjeClient.ReserversionsServiceReference.Reserversions.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\RoomsServiceReference\RezerwacjeClient.RoomsServiceReference.RoomWraper.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\RoomsServiceReference\RoomsService.wsdl" />
@@ -174,10 +192,7 @@
     <None Include="Service References\RoomsServiceReference\RoomsService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Service References\UsersServiceReference\RezerwacjeClient.UsersServiceReference.CompositeType.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Service References\UsersServiceReference\RezerwacjeClient.UsersServiceReference.Users.datasource">
+    <None Include="Service References\UsersServiceReference\RezerwacjeClient.UsersServiceReference.UserWraper.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\UsersServiceReference\UsersService.wsdl" />
@@ -200,6 +215,7 @@
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\AuthServiceReference\" />
     <WCFMetadataStorage Include="Service References\CustomerServiceReference\" />
+    <WCFMetadataStorage Include="Service References\ReserversionsServiceReference\" />
     <WCFMetadataStorage Include="Service References\RoomsServiceReference\" />
     <WCFMetadataStorage Include="Service References\UsersServiceReference\" />
   </ItemGroup>
@@ -259,6 +275,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Service References\RoomsServiceReference\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReserversionsServiceReference\ReserversionsService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReserversionsServiceReference\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReserversionsServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ReserversionsServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1ab7ac04-3eea-4267-997a-64c3e7595f14" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:60742/ReserversionsService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="ReserversionsService.wsdl" MetadataType="Wsdl" ID="12855af8-8afb-4725-81e9-362a7cdac3ec" SourceId="1" SourceUrl="http://localhost:60742/ReserversionsService.svc?wsdl" />
+    <MetadataFile FileName="ReserversionsService.xsd" MetadataType="Schema" ID="4fcb38be-7f27-4cd3-904d-873e3d600c78" SourceId="1" SourceUrl="http://localhost:60742/ReserversionsService.svc?xsd=xsd1" />
+    <MetadataFile FileName="ReserversionsService.disco" MetadataType="Disco" ID="6a7e121b-5e9a-4739-a6f7-07f6e9f78813" SourceId="1" SourceUrl="http://localhost:60742/ReserversionsService.svc?disco" />
+    <MetadataFile FileName="ReserversionsService1.xsd" MetadataType="Schema" ID="685310b1-ae73-481f-80ca-f0e3ad37939f" SourceId="1" SourceUrl="http://localhost:60742/ReserversionsService.svc?xsd=xsd2" />
+    <MetadataFile FileName="ReserversionsService2.xsd" MetadataType="Schema" ID="aff37b52-bb1c-46b4-9dc5-d375c60798dc" SourceId="1" SourceUrl="http://localhost:60742/ReserversionsService.svc?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -12,28 +12,34 @@ namespace RezerwacjeService
    
     public class UsersService : IUsersService
     {
-
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public Func<Users, UserWraper> convert = user => new UserWraper()
         {
-            return null;
-        }
+            Id = user.Id,
+            Login = user.Login,
+            Password = user.Password,
+            Type = user.Type,
+            Firstname = user.Firstname,
+            Surname = user.Surname
+        };
 
-        List<Users> IUsersService.FindAll(String sessionId)
-        {
-            if (!UserAuthFactory.Instance.isAuth(sessionId))
-            {
-                return null;
-            }
-            return UsersFactory.Instance.FindAll();
-        }
-
-        Users IUsersService.FindByLogin(String sessionId, String login)
+        List<UserWraper> IUsersService.FindAll(String sessionId)
         {
             if (!UserAuthFactory.Instance.isAuth(sessionId))
             {
                 return null;
             }
-            return UsersFactory.Instance.FindByLogin(login);
+            List<Users> usersEntitises = UsersFactory.Instance.FindAll();
+            return usersEntitises.Select(convert).ToList();
+        }
+
+        UserWraper IUsersService.FindByLogin(String sessionId, String login)
+        {
+            if (!UserAuthFactory.Instance.isAuth(sessionId))
+            {
+                return null;
+            }
+            Users userEntity = UsersFactory.Instance.FindByLogin(login);
+            return convert(userEntity);
         }
 
         bool IUsersService.isAdmin(String sessionId, String login)

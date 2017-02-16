@@ -51,6 +51,7 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.IdentityModel.Selectors" />
     <Reference Include="System.identitymodel.services" />
@@ -80,6 +81,7 @@
     </Content>
     <Content Include="AuthService.svc" />
     <Content Include="CustomerService.svc" />
+    <Content Include="ReserversionsService.svc" />
     <Content Include="RezerwacjeModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>RezerwacjeModel.edmx</DependentUpon>
@@ -109,15 +111,24 @@
     <Compile Include="ICustomerService.cs" />
     <Compile Include="App_Code\UserAuthFactory.cs" />
     <Compile Include="App_Code\UsersFactory.cs" />
+    <Compile Include="IReserversionsService.cs" />
     <Compile Include="IRoomsService.cs" />
+    <Compile Include="App_Code\ReserversionsFactory.cs" />
+    <Compile Include="Reserversions.cs">
+      <DependentUpon>RezerwacjeModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ReserversionsService.svc.cs">
+      <DependentUpon>ReserversionsService.svc</DependentUpon>
+    </Compile>
+    <Compile Include="App_Code\RoomsFactory.cs" />
     <Compile Include="RezerwacjeModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RezerwacjeModel.Context.tt</DependentUpon>
     </Compile>
     <Compile Include="RezerwacjeModel.cs">
-      <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
       <DependentUpon>RezerwacjeModel.tt</DependentUpon>
     </Compile>
     <Compile Include="RezerwacjeModel.Designer.cs">
@@ -128,7 +139,6 @@
     <Compile Include="Rooms.cs">
       <DependentUpon>RezerwacjeModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="App_Code\RoomsFactory.cs" />
     <Compile Include="RoomsService.svc.cs">
       <DependentUpon>RoomsService.svc</DependentUpon>
     </Compile>

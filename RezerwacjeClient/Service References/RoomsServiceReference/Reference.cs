@@ -15,9 +15,9 @@ namespace RezerwacjeClient.RoomsServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Rooms", Namespace="http://schemas.datacontract.org/2004/07/RezerwacjeService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RoomWraper", Namespace="http://schemas.datacontract.org/2004/07/RezerwacjeService")]
     [System.SerializableAttribute()]
-    public partial class Rooms : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class RoomWraper : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -127,22 +127,22 @@ namespace RezerwacjeClient.RoomsServiceReference {
     public interface IRoomsService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomsService/FindAll", ReplyAction="http://tempuri.org/IRoomsService/FindAllResponse")]
-        RezerwacjeClient.RoomsServiceReference.Rooms[] FindAll(string sessionId);
+        RezerwacjeClient.RoomsServiceReference.RoomWraper[] FindAll(string sessionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomsService/FindAll", ReplyAction="http://tempuri.org/IRoomsService/FindAllResponse")]
-        System.Threading.Tasks.Task<RezerwacjeClient.RoomsServiceReference.Rooms[]> FindAllAsync(string sessionId);
+        System.Threading.Tasks.Task<RezerwacjeClient.RoomsServiceReference.RoomWraper[]> FindAllAsync(string sessionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomsService/FindById", ReplyAction="http://tempuri.org/IRoomsService/FindByIdResponse")]
-        RezerwacjeClient.RoomsServiceReference.Rooms FindById(string sessionId, int id);
+        RezerwacjeClient.RoomsServiceReference.RoomWraper FindById(string sessionId, int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomsService/FindById", ReplyAction="http://tempuri.org/IRoomsService/FindByIdResponse")]
-        System.Threading.Tasks.Task<RezerwacjeClient.RoomsServiceReference.Rooms> FindByIdAsync(string sessionId, int id);
+        System.Threading.Tasks.Task<RezerwacjeClient.RoomsServiceReference.RoomWraper> FindByIdAsync(string sessionId, int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomsService/Save", ReplyAction="http://tempuri.org/IRoomsService/SaveResponse")]
-        int Save(string sessionId, RezerwacjeClient.RoomsServiceReference.Rooms room);
+        int Save(string sessionId, RezerwacjeClient.RoomsServiceReference.RoomWraper room);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IRoomsService/Save", ReplyAction="http://tempuri.org/IRoomsService/SaveResponse")]
-        System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.RoomsServiceReference.Rooms room);
+        System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.RoomsServiceReference.RoomWraper room);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -172,27 +172,27 @@ namespace RezerwacjeClient.RoomsServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public RezerwacjeClient.RoomsServiceReference.Rooms[] FindAll(string sessionId) {
+        public RezerwacjeClient.RoomsServiceReference.RoomWraper[] FindAll(string sessionId) {
             return base.Channel.FindAll(sessionId);
         }
         
-        public System.Threading.Tasks.Task<RezerwacjeClient.RoomsServiceReference.Rooms[]> FindAllAsync(string sessionId) {
+        public System.Threading.Tasks.Task<RezerwacjeClient.RoomsServiceReference.RoomWraper[]> FindAllAsync(string sessionId) {
             return base.Channel.FindAllAsync(sessionId);
         }
         
-        public RezerwacjeClient.RoomsServiceReference.Rooms FindById(string sessionId, int id) {
+        public RezerwacjeClient.RoomsServiceReference.RoomWraper FindById(string sessionId, int id) {
             return base.Channel.FindById(sessionId, id);
         }
         
-        public System.Threading.Tasks.Task<RezerwacjeClient.RoomsServiceReference.Rooms> FindByIdAsync(string sessionId, int id) {
+        public System.Threading.Tasks.Task<RezerwacjeClient.RoomsServiceReference.RoomWraper> FindByIdAsync(string sessionId, int id) {
             return base.Channel.FindByIdAsync(sessionId, id);
         }
         
-        public int Save(string sessionId, RezerwacjeClient.RoomsServiceReference.Rooms room) {
+        public int Save(string sessionId, RezerwacjeClient.RoomsServiceReference.RoomWraper room) {
             return base.Channel.Save(sessionId, room);
         }
         
-        public System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.RoomsServiceReference.Rooms room) {
+        public System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.RoomsServiceReference.RoomWraper room) {
             return base.Channel.SaveAsync(sessionId, room);
         }
     }

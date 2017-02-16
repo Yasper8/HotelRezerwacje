@@ -1,25 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RezerwacjeService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RezerwacjeService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:complexType name="ArrayOfUsers">
+  <xs:import schemaLocation="http://localhost:60742/UsersService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfUserWraper">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Users" nillable="true" type="tns:Users" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserWraper" nillable="true" type="tns:UserWraper" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfUsers" nillable="true" type="tns:ArrayOfUsers" />
-  <xs:complexType name="Users">
+  <xs:element name="ArrayOfUserWraper" nillable="true" type="tns:ArrayOfUserWraper" />
+  <xs:complexType name="UserWraper">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Firstname" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Type" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:UserType" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Users" nillable="true" type="tns:Users" />
-  <xs:complexType name="CompositeType">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="BoolValue" type="xs:boolean" />
-      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="CompositeType" nillable="true" type="tns:CompositeType" />
+  <xs:element name="UserWraper" nillable="true" type="tns:UserWraper" />
+  <xs:simpleType name="UserType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ADMIN">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="USER">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UserType" nillable="true" type="tns:UserType" />
 </xs:schema>

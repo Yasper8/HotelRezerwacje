@@ -14,9 +14,20 @@ namespace RezerwacjeService
     
     public partial class Users
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Users()
+        {
+            this.Reserversions = new HashSet<Reserversions>();
+        }
+    
         public int Id { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
         public UserType Type { get; set; }
+        public string Firstname { get; set; }
+        public string Surname { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reserversions> Reserversions { get; set; }
     }
 }

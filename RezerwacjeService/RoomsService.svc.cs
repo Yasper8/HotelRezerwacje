@@ -9,31 +9,48 @@ namespace RezerwacjeService
 {
     public class RoomsService : IRoomsService
     {
-        public List<Rooms> FindAll(string sessionId)
+        public Func<Rooms, RoomWraper> convert = room => new RoomWraper()
+        {
+            Id = room.Id,
+            Number = room.Number,
+            Floor = room.Floor,
+            BedNo = room.BedNo,
+            BathNo = room.BathNo
+        };
+
+        public Func<RoomWraper, Rooms> reconvert = roomWraper => new Rooms()
+        {
+            Id = roomWraper.Id,
+            Number = roomWraper.Number,
+            Floor = roomWraper.Floor,
+            BedNo = roomWraper.BedNo,
+            BathNo = roomWraper.BathNo
+        };
+
+        public List<RoomWraper> FindAll(string sessionId)
+        {
+            List<Rooms> roomsEntities = RoomsFactory.Instance.FindAll();
+            return roomsEntities.Select(convert).ToList();
+        }
+
+        public RoomWraper FindById(string sessionId, int id)
         {
             if (!UserAuthFactory.Instance.isAuth(sessionId))
             {
                 return null;
             }
-            return RoomsFactory.Instance.FindAll();
+            Rooms roomEntity = RoomsFactory.Instance.FindById(id);
+            return convert(roomEntity);
         }
 
-        public Rooms FindById(string sessionId, int id)
-        {
-            if (!UserAuthFactory.Instance.isAuth(sessionId))
-            {
-                return null;
-            }
-            return RoomsFactory.Instance.FindById(id);
-        }
-
-        public int Save(string sessionId, Rooms room)
+        public int Save(string sessionId, RoomWraper room)
         {
             if (!UserAuthFactory.Instance.isAuth(sessionId))
             {
                 return 0;
             }
-            return RoomsFactory.Instance.Save(room);
+            Rooms roomEntity = reconvert(room);
+            return RoomsFactory.Instance.Save(roomEntity);
         }
     }
 }

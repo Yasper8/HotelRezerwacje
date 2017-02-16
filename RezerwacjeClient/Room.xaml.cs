@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace RezerwacjeClient
 {
-    /// <summary>
-    /// Interaction logic for Room.xaml
-    /// </summary>
+
     public partial class Room : Window
     {
         public Room()
@@ -31,7 +29,7 @@ namespace RezerwacjeClient
 
         private void CustomersGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Rooms selectedRoom = (Rooms)CustomersDataGrid.SelectedItem;
+            RoomWraper selectedRoom = (RoomWraper)CustomersDataGrid.SelectedItem;
 
             if (selectedRoom != null)
             {
@@ -44,7 +42,7 @@ namespace RezerwacjeClient
 
         private void buttonUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Rooms room = (Rooms)CustomersDataGrid.SelectedItem;
+            RoomWraper room = (RoomWraper)CustomersDataGrid.SelectedItem;
 
             room.Number = Int32.Parse(textBoxNumber.Text);
             room.Floor = Int32.Parse(textBoxFloor.Text);
@@ -58,7 +56,7 @@ namespace RezerwacjeClient
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-            Rooms room = new Rooms();
+            RoomWraper room = new RoomWraper();
             room.Number = Int32.Parse(textBoxNumber.Text);
             room.Floor = Int32.Parse(textBoxFloor.Text);
             room.BedNo = Int32.Parse(textBoxBedNo.Text);

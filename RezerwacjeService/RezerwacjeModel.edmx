@@ -15,6 +15,17 @@
           <Property Name="Telephone" Type="varchar" MaxLength="50" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Reserversions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="From" Type="date" Nullable="false" />
+          <Property Name="To" Type="date" Nullable="false" />
+          <Property Name="RoomId" Type="int" Nullable="false" />
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="ModyfiedById" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Rooms">
           <Key>
             <PropertyRef Name="Id" />
@@ -33,11 +44,62 @@
           <Property Name="Login" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Type" Type="int" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="Surname" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK_Customer">
+          <End Role="Customers" Type="Self.Customers" Multiplicity="1" />
+          <End Role="Reserversions" Type="Self.Reserversions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reserversions">
+              <PropertyRef Name="CustomerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Modyfied">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Reserversions" Type="Self.Reserversions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reserversions">
+              <PropertyRef Name="ModyfiedById" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Room">
+          <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
+          <End Role="Reserversions" Type="Self.Reserversions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rooms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Reserversions">
+              <PropertyRef Name="RoomId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="RezerwacjeDatabaseModelStoreContainer">
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Reserversions" EntityType="Self.Reserversions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Rooms" EntityType="Self.Rooms" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Customer" Association="Self.FK_Customer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Reserversions" EntitySet="Reserversions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modyfied" Association="Self.FK_Modyfied">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Reserversions" EntitySet="Reserversions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room" Association="Self.FK_Room">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Reserversions" EntitySet="Reserversions" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -47,30 +109,13 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reserversions" Relationship="RezerwacjeDatabaseModel.FK_Customer" FromRole="Customers" ToRole="Reserversions" />
         </EntityType>
-        <EntityContainer Name="RezerwacjeDatabaseEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Customers" EntityType="Self.Customers" />
-          <EntitySet Name="Users" EntityType="RezerwacjeDatabaseModel.Users" />
-          <EntitySet Name="Rooms" EntityType="RezerwacjeDatabaseModel.Rooms" />
-        </EntityContainer>
-        <EntityType Name="Users">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Login" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Type" Type="RezerwacjeDatabaseModel.UserType" Nullable="false" />
-        </EntityType>
-        <EnumType Name="UserType">
-          <Member Name="ADMIN" Value="1" />
-          <Member Name="USER" Value="2" />
-        </EnumType>
         <EntityType Name="Rooms">
           <Key>
             <PropertyRef Name="Id" />
@@ -80,8 +125,66 @@
           <Property Name="Floor" Type="Int32" Nullable="false" />
           <Property Name="BedNo" Type="Int32" Nullable="false" />
           <Property Name="BathNo" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Reserversions" Relationship="RezerwacjeDatabaseModel.FK_Room" FromRole="Rooms" ToRole="Reserversions" />
         </EntityType>
-      </Schema>
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Type" Type="RezerwacjeDatabaseModel.UserType" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Surname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Reserversions" Relationship="RezerwacjeDatabaseModel.FK_Modyfied" FromRole="Users" ToRole="Reserversions" />
+        </EntityType>
+        <EntityContainer Name="RezerwacjeDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Customers" EntityType="Self.Customers" />
+          <EntitySet Name="Rooms" EntityType="Self.Rooms" />
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Reserversions" EntityType="RezerwacjeDatabaseModel.Reserversions" />
+          <AssociationSet Name="FK_Customer" Association="RezerwacjeDatabaseModel.FK_Customer">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Reserversions" EntitySet="Reserversions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Modyfied" Association="RezerwacjeDatabaseModel.FK_Modyfied">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Reserversions" EntitySet="Reserversions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Room" Association="RezerwacjeDatabaseModel.FK_Room">
+            <End Role="Rooms" EntitySet="Rooms" />
+            <End Role="Reserversions" EntitySet="Reserversions" />
+          </AssociationSet>
+          </EntityContainer>
+        <EnumType Name="UserType">
+          <Member Name="ADMIN" Value="1" />
+          <Member Name="USER" Value="2" />
+        </EnumType>
+        <EntityType Name="Reserversions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="From" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="To" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="Customers" Relationship="RezerwacjeDatabaseModel.FK_Customer" FromRole="Reserversions" ToRole="Customers" />
+          <NavigationProperty Name="Users" Relationship="RezerwacjeDatabaseModel.FK_Modyfied" FromRole="Reserversions" ToRole="Users" />
+          <NavigationProperty Name="Rooms" Relationship="RezerwacjeDatabaseModel.FK_Room" FromRole="Reserversions" ToRole="Rooms" />
+        </EntityType>
+        <Association Name="FK_Customer">
+          <End Type="RezerwacjeDatabaseModel.Customers" Role="Customers" Multiplicity="1" />
+          <End Type="RezerwacjeDatabaseModel.Reserversions" Role="Reserversions" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Modyfied">
+          <End Type="RezerwacjeDatabaseModel.Users" Role="Users" Multiplicity="1" />
+          <End Type="RezerwacjeDatabaseModel.Reserversions" Role="Reserversions" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Room">
+          <End Type="RezerwacjeDatabaseModel.Rooms" Role="Rooms" Multiplicity="1" />
+          <End Type="RezerwacjeDatabaseModel.Reserversions" Role="Reserversions" Multiplicity="*" />
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -98,28 +201,63 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="RezerwacjeDatabaseModel.Users">
-              <MappingFragment StoreEntitySet="Users">
-                <ScalarProperty Name="Type" ColumnName="Type" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
-                <ScalarProperty Name="Login" ColumnName="Login" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Rooms">
             <EntityTypeMapping TypeName="RezerwacjeDatabaseModel.Rooms">
               <MappingFragment StoreEntitySet="Rooms">
-                <ScalarProperty Name="BathNo" ColumnName="BathNo" />
-                <ScalarProperty Name="BedNo" ColumnName="BedNo" />
-                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="Floor" ColumnName="Floor" />
+                <ScalarProperty Name="BedNo" ColumnName="BedNo" />
+                <ScalarProperty Name="BathNo" ColumnName="BathNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="RezerwacjeDatabaseModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Surname" ColumnName="Surname" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reserversions">
+            <EntityTypeMapping TypeName="RezerwacjeDatabaseModel.Reserversions">
+              <MappingFragment StoreEntitySet="Reserversions">
+                <ScalarProperty Name="To" ColumnName="To" />
+                <ScalarProperty Name="From" ColumnName="From" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <AssociationSetMapping Name="FK_Customer" TypeName="RezerwacjeDatabaseModel.FK_Customer" StoreEntitySet="Reserversions">
+            <EndProperty Name="Reserversions">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <EndProperty Name="Customers">
+              <ScalarProperty Name="Id" ColumnName="CustomerId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Modyfied" TypeName="RezerwacjeDatabaseModel.FK_Modyfied" StoreEntitySet="Reserversions">
+            <EndProperty Name="Reserversions">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <EndProperty Name="Users">
+              <ScalarProperty Name="Id" ColumnName="ModyfiedById" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Room" TypeName="RezerwacjeDatabaseModel.FK_Room" StoreEntitySet="Reserversions">
+            <EndProperty Name="Reserversions">
+              <ScalarProperty Name="Id" ColumnName="Id" />
+            </EndProperty>
+            <EndProperty Name="Rooms">
+              <ScalarProperty Name="Id" ColumnName="RoomId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

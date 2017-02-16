@@ -29,7 +29,7 @@ namespace RezerwacjeClient
 
         private void CustomersGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Customers selectedCustomer = (Customers)CustomersDataGrid.SelectedItem;
+            CustomerWraper selectedCustomer = (CustomerWraper)CustomersDataGrid.SelectedItem;
 
             if (selectedCustomer != null)
             {
@@ -42,7 +42,7 @@ namespace RezerwacjeClient
 
         private void buttonUpdate_Click(object sender, RoutedEventArgs e)
         {
-            Customers customer = (Customers)CustomersDataGrid.SelectedItem;
+            CustomerWraper customer = (CustomerWraper)CustomersDataGrid.SelectedItem;
 
             customer.FirstName = textBoxFirstname.Text;
             customer.Surname = textBoxSurname.Text;
@@ -56,7 +56,7 @@ namespace RezerwacjeClient
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-            Customers customer = new Customers();
+            CustomerWraper customer = new CustomerWraper();
             customer.FirstName = textBoxFirstname.Text;
             customer.Surname = textBoxSurname.Text;
             customer.Telephone = textBoxTelephone.Text;

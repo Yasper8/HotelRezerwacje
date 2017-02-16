@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RezerwacjeService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RezerwacjeService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:60742/ReserversionsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="ArrayOfReserversions">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Reserversions" nillable="true" type="tns:Reserversions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfReserversions" nillable="true" type="tns:ArrayOfReserversions" />
+  <xs:complexType name="Reserversions">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Customers" nillable="true" type="tns:Customers" />
+      <xs:element minOccurs="0" name="From" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Rooms" nillable="true" type="tns:Rooms" />
+      <xs:element minOccurs="0" name="To" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:Users" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Reserversions" nillable="true" type="tns:Reserversions" />
+  <xs:complexType name="Customers">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Reserversions" nillable="true" type="tns:ArrayOfReserversions" />
+      <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Customers" nillable="true" type="tns:Customers" />
+  <xs:complexType name="Rooms">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BathNo" type="xs:int" />
+      <xs:element minOccurs="0" name="BedNo" type="xs:int" />
+      <xs:element minOccurs="0" name="Floor" type="xs:int" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+      <xs:element minOccurs="0" name="Reserversions" nillable="true" type="tns:ArrayOfReserversions" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Rooms" nillable="true" type="tns:Rooms" />
+  <xs:complexType name="Users">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Firstname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Reserversions" nillable="true" type="tns:ArrayOfReserversions" />
+      <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Type" type="tns:UserType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Users" nillable="true" type="tns:Users" />
+  <xs:simpleType name="UserType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ADMIN">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="USER">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="UserType" nillable="true" type="tns:UserType" />
+</xs:schema>

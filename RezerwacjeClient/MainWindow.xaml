@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:RezerwacjeClient"
         mc:Ignorable="d"
         Title="MainWindow" Height="501.906" Width="1051.539">
@@ -32,14 +33,14 @@
             </DataGrid.Columns>
         </DataGrid>
         <Grid HorizontalAlignment="Left" Height="277" Margin="10,34,0,0" VerticalAlignment="Top" Width="277">
-            <TextBox x:Name="textBoxNumber" HorizontalAlignment="Left" Height="23" Margin="118,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.406,-0.059"/>
-            <TextBox x:Name="textBoxFloor" HorizontalAlignment="Left" Height="23" Margin="118,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="textBoxBedNo" HorizontalAlignment="Left" Height="23" Margin="118,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <TextBox x:Name="textBoxBathNo" HorizontalAlignment="Left" Height="23" Margin="118,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-            <Label x:Name="labelNumber" Content="Numer" HorizontalAlignment="Left" Margin="32,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.997,0.629" Width="68"/>
-            <Label x:Name="labelFloor" Content="Piętro" HorizontalAlignment="Left" Margin="32,38,0,0" VerticalAlignment="Top" Width="62"/>
-            <Label x:Name="labelBedNo" Content="Ilość łóżek" HorizontalAlignment="Left" Margin="32,66,0,0" VerticalAlignment="Top" Width="86"/>
-            <Label x:Name="labelBathNo" Content="Ilość łazienek" HorizontalAlignment="Left" Margin="32,94,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.094,0.611" Width="81"/>
+            <DatePicker x:Name="datePickerFrom" HorizontalAlignment="Left" Height="23" Margin="105,10,0,0" VerticalAlignment="Top" Width="153" RenderTransformOrigin="0.406,-0.059"/>
+            <DatePicker x:Name="datePickerTo" HorizontalAlignment="Left" Height="23" Margin="105,38,0,0" VerticalAlignment="Top" Width="153"/>
+            <ComboBox x:Name="comboBoxCustomer" HorizontalAlignment="Left" Height="23" Margin="105,66,0,0" VerticalAlignment="Top" Width="153"/>
+            <ComboBox x:Name="comboBoxRoom" HorizontalAlignment="Left" Height="23" Margin="105,94,0,0" VerticalAlignment="Top" Width="153"/>
+            <Label x:Name="labelFrom" Content="Data od" HorizontalAlignment="Left" Margin="32,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.997,0.629" Width="68"/>
+            <Label x:Name="labelTo" Content="Data do" HorizontalAlignment="Left" Margin="32,38,0,0" VerticalAlignment="Top" Width="62"/>
+            <Label x:Name="labelCustomer" Content="Klient" HorizontalAlignment="Left" Margin="32,66,0,0" VerticalAlignment="Top" Width="86"/>
+            <Label x:Name="labelRoom" Content="Pokój" HorizontalAlignment="Left" Margin="32,94,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.094,0.611" Width="81"/>
             <Button x:Name="buttonUpdate" Content="Zapisz" HorizontalAlignment="Left" Margin="163,245,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdate_Click"/>
             <Button x:Name="buttonAdd" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="83,245,0,0" Click="buttonAdd_Click"/>
         </Grid>

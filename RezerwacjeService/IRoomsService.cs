@@ -33,5 +33,6 @@ namespace RezerwacjeService
         public int BedNo { get; set; }
         [DataMember]
         public int BathNo { get; set; }
+
     }
 }

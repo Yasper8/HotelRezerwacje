@@ -9,7 +9,7 @@ namespace RezerwacjeService
 {
     public class RoomsService : IRoomsService
     {
-        public Func<Rooms, RoomWraper> convert = room => new RoomWraper()
+        public static Func<Rooms, RoomWraper> convert = room => new RoomWraper()
         {
             Id = room.Id,
             Number = room.Number,
@@ -18,7 +18,7 @@ namespace RezerwacjeService
             BathNo = room.BathNo
         };
 
-        public Func<RoomWraper, Rooms> reconvert = roomWraper => new Rooms()
+        public static Func<RoomWraper, Rooms> reconvert = roomWraper => new Rooms()
         {
             Id = roomWraper.Id,
             Number = roomWraper.Number,

@@ -10,7 +10,7 @@ namespace RezerwacjeService
 
     public class CustomerService : ICustomerService
     {
-        public Func<Customers, CustomerWraper> convert = customer => new CustomerWraper()
+        public static Func<Customers, CustomerWraper> convert = customer => new CustomerWraper()
         {
             Id = customer.Id,
             FirstName = customer.FirstName,
@@ -19,7 +19,7 @@ namespace RezerwacjeService
             Email = customer.Email
         };
 
-        public Func<CustomerWraper, Customers> reconvert = customer => new Customers()
+        public static Func<CustomerWraper, Customers> reconvert = customer => new Customers()
         {
             Id = customer.Id,
             FirstName = customer.FirstName,

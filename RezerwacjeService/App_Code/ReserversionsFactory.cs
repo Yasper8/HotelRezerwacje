@@ -24,11 +24,11 @@ namespace RezerwacjeService
             }
         }
 
-        /*public List<Reserversions> FindAll()
+        public List<Reserversions> FindAll()
         {
             using (var dbContext = new RezerwacjeDatabaseEntities())
             {
-                List<Reserversions> reserversions = dbContext.Reserversions.ToList();
+                List<Reserversions> reserversions = getWithDependences(dbContext).ToList();
                 return reserversions;
             }
         }
@@ -37,7 +37,7 @@ namespace RezerwacjeService
         {
             using (var dbContext = new RezerwacjeDatabaseEntities())
             {
-                Reserversions reserversions = (from u in dbContext.Reserversions where u.Id == id select u).FirstOrDefault();
+                Reserversions reserversions = (from u in getWithDependences(dbContext) where u.Id == id select u).FirstOrDefault();
                 return reserversions;
             }
         }
@@ -49,6 +49,11 @@ namespace RezerwacjeService
                 dbContext.Entry(reserversion).State = reserversion.Id == 0 ? EntityState.Added : EntityState.Modified;
                 return dbContext.SaveChanges();
             }
-        }*/
+        }
+
+        private IQueryable<Reserversions> getWithDependences(RezerwacjeDatabaseEntities dbContext)
+        {
+            return dbContext.Reserversions.Include(r => r.Customers).Include(r => r.Rooms).Include(r => r.Users);
+        }
     }
 }

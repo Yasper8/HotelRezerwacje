@@ -15,15 +15,15 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Reserversions", Namespace="http://schemas.datacontract.org/2004/07/RezerwacjeService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ReserversionWraper", Namespace="http://schemas.datacontract.org/2004/07/RezerwacjeService")]
     [System.SerializableAttribute()]
-    public partial class Reserversions : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class ReserversionWraper : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RezerwacjeClient.ReserversionsServiceReference.Customers CustomersField;
+        private RezerwacjeClient.ReserversionsServiceReference.CustomerWraper CustomersField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime FromField;
@@ -32,13 +32,13 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RezerwacjeClient.ReserversionsServiceReference.Rooms RoomsField;
+        private RezerwacjeClient.ReserversionsServiceReference.RoomWraper RoomsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.DateTime ToField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RezerwacjeClient.ReserversionsServiceReference.Users UsersField;
+        private RezerwacjeClient.ReserversionsServiceReference.UserWraper UsersField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -51,7 +51,7 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public RezerwacjeClient.ReserversionsServiceReference.Customers Customers {
+        public RezerwacjeClient.ReserversionsServiceReference.CustomerWraper Customers {
             get {
                 return this.CustomersField;
             }
@@ -90,7 +90,7 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public RezerwacjeClient.ReserversionsServiceReference.Rooms Rooms {
+        public RezerwacjeClient.ReserversionsServiceReference.RoomWraper Rooms {
             get {
                 return this.RoomsField;
             }
@@ -116,7 +116,7 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public RezerwacjeClient.ReserversionsServiceReference.Users Users {
+        public RezerwacjeClient.ReserversionsServiceReference.UserWraper Users {
             get {
                 return this.UsersField;
             }
@@ -140,9 +140,9 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Customers", Namespace="http://schemas.datacontract.org/2004/07/RezerwacjeService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="CustomerWraper", Namespace="http://schemas.datacontract.org/2004/07/RezerwacjeService")]
     [System.SerializableAttribute()]
-    public partial class Customers : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class CustomerWraper : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -155,9 +155,6 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RezerwacjeClient.ReserversionsServiceReference.Reserversions[] ReserversionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SurnameField;
@@ -215,19 +212,6 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public RezerwacjeClient.ReserversionsServiceReference.Reserversions[] Reserversions {
-            get {
-                return this.ReserversionsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ReserversionsField, value) != true)) {
-                    this.ReserversionsField = value;
-                    this.RaisePropertyChanged("Reserversions");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Surname {
             get {
                 return this.SurnameField;
@@ -265,9 +249,9 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Rooms", Namespace="http://schemas.datacontract.org/2004/07/RezerwacjeService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="RoomWraper", Namespace="http://schemas.datacontract.org/2004/07/RezerwacjeService")]
     [System.SerializableAttribute()]
-    public partial class Rooms : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class RoomWraper : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -286,9 +270,6 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int NumberField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RezerwacjeClient.ReserversionsServiceReference.Reserversions[] ReserversionsField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -365,19 +346,6 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
             }
         }
         
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public RezerwacjeClient.ReserversionsServiceReference.Reserversions[] Reserversions {
-            get {
-                return this.ReserversionsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ReserversionsField, value) != true)) {
-                    this.ReserversionsField = value;
-                    this.RaisePropertyChanged("Reserversions");
-                }
-            }
-        }
-        
         public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
         
         protected void RaisePropertyChanged(string propertyName) {
@@ -390,9 +358,9 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Users", Namespace="http://schemas.datacontract.org/2004/07/RezerwacjeService")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="UserWraper", Namespace="http://schemas.datacontract.org/2004/07/RezerwacjeService")]
     [System.SerializableAttribute()]
-    public partial class Users : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class UserWraper : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -408,9 +376,6 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private RezerwacjeClient.ReserversionsServiceReference.Reserversions[] ReserversionsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string SurnameField;
@@ -481,19 +446,6 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public RezerwacjeClient.ReserversionsServiceReference.Reserversions[] Reserversions {
-            get {
-                return this.ReserversionsField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.ReserversionsField, value) != true)) {
-                    this.ReserversionsField = value;
-                    this.RaisePropertyChanged("Reserversions");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Surname {
             get {
                 return this.SurnameField;
@@ -545,22 +497,22 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
     public interface IReserversionsService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserversionsService/FindAll", ReplyAction="http://tempuri.org/IReserversionsService/FindAllResponse")]
-        RezerwacjeClient.ReserversionsServiceReference.Reserversions[] FindAll(string sessionId);
+        RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper[] FindAll(string sessionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserversionsService/FindAll", ReplyAction="http://tempuri.org/IReserversionsService/FindAllResponse")]
-        System.Threading.Tasks.Task<RezerwacjeClient.ReserversionsServiceReference.Reserversions[]> FindAllAsync(string sessionId);
+        System.Threading.Tasks.Task<RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper[]> FindAllAsync(string sessionId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserversionsService/FindById", ReplyAction="http://tempuri.org/IReserversionsService/FindByIdResponse")]
-        RezerwacjeClient.ReserversionsServiceReference.Reserversions FindById(string sessionId, int id);
+        RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper FindById(string sessionId, int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserversionsService/FindById", ReplyAction="http://tempuri.org/IReserversionsService/FindByIdResponse")]
-        System.Threading.Tasks.Task<RezerwacjeClient.ReserversionsServiceReference.Reserversions> FindByIdAsync(string sessionId, int id);
+        System.Threading.Tasks.Task<RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper> FindByIdAsync(string sessionId, int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserversionsService/Save", ReplyAction="http://tempuri.org/IReserversionsService/SaveResponse")]
-        int Save(string sessionId, RezerwacjeClient.ReserversionsServiceReference.Reserversions reserversion);
+        int Save(string sessionId, RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper reserversion);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserversionsService/Save", ReplyAction="http://tempuri.org/IReserversionsService/SaveResponse")]
-        System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.ReserversionsServiceReference.Reserversions reserversion);
+        System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper reserversion);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -590,27 +542,27 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
                 base(binding, remoteAddress) {
         }
         
-        public RezerwacjeClient.ReserversionsServiceReference.Reserversions[] FindAll(string sessionId) {
+        public RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper[] FindAll(string sessionId) {
             return base.Channel.FindAll(sessionId);
         }
         
-        public System.Threading.Tasks.Task<RezerwacjeClient.ReserversionsServiceReference.Reserversions[]> FindAllAsync(string sessionId) {
+        public System.Threading.Tasks.Task<RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper[]> FindAllAsync(string sessionId) {
             return base.Channel.FindAllAsync(sessionId);
         }
         
-        public RezerwacjeClient.ReserversionsServiceReference.Reserversions FindById(string sessionId, int id) {
+        public RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper FindById(string sessionId, int id) {
             return base.Channel.FindById(sessionId, id);
         }
         
-        public System.Threading.Tasks.Task<RezerwacjeClient.ReserversionsServiceReference.Reserversions> FindByIdAsync(string sessionId, int id) {
+        public System.Threading.Tasks.Task<RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper> FindByIdAsync(string sessionId, int id) {
             return base.Channel.FindByIdAsync(sessionId, id);
         }
         
-        public int Save(string sessionId, RezerwacjeClient.ReserversionsServiceReference.Reserversions reserversion) {
+        public int Save(string sessionId, RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper reserversion) {
             return base.Channel.Save(sessionId, reserversion);
         }
         
-        public System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.ReserversionsServiceReference.Reserversions reserversion) {
+        public System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper reserversion) {
             return base.Channel.SaveAsync(sessionId, reserversion);
         }
     }

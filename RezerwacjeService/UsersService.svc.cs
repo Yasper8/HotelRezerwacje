@@ -12,7 +12,7 @@ namespace RezerwacjeService
    
     public class UsersService : IUsersService
     {
-        public Func<Users, UserWraper> convert = user => new UserWraper()
+        public static Func<Users, UserWraper> convert = user => new UserWraper()
         {
             Id = user.Id,
             Login = user.Login,
@@ -20,6 +20,16 @@ namespace RezerwacjeService
             Type = user.Type,
             Firstname = user.Firstname,
             Surname = user.Surname
+        };
+
+        public static Func<UserWraper, Users> reconvert = userWraper => new Users()
+        {
+            Id = userWraper.Id,
+            Login = userWraper.Login,
+            Password = userWraper.Password,
+            Type = userWraper.Type,
+            Firstname = userWraper.Firstname,
+            Surname = userWraper.Surname
         };
 
         List<UserWraper> IUsersService.FindAll(String sessionId)

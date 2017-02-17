@@ -1,57 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/RezerwacjeService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/RezerwacjeService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://localhost:60742/ReserversionsService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-  <xs:complexType name="ArrayOfReserversions">
+  <xs:complexType name="ArrayOfReserversionWraper">
     <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Reserversions" nillable="true" type="tns:Reserversions" />
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ReserversionWraper" nillable="true" type="tns:ReserversionWraper" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="ArrayOfReserversions" nillable="true" type="tns:ArrayOfReserversions" />
-  <xs:complexType name="Reserversions">
+  <xs:element name="ArrayOfReserversionWraper" nillable="true" type="tns:ArrayOfReserversionWraper" />
+  <xs:complexType name="ReserversionWraper">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Customers" nillable="true" type="tns:Customers" />
+      <xs:element minOccurs="0" name="Customers" nillable="true" type="tns:CustomerWraper" />
       <xs:element minOccurs="0" name="From" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Rooms" nillable="true" type="tns:Rooms" />
+      <xs:element minOccurs="0" name="Rooms" nillable="true" type="tns:RoomWraper" />
       <xs:element minOccurs="0" name="To" type="xs:dateTime" />
-      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:Users" />
+      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:UserWraper" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Reserversions" nillable="true" type="tns:Reserversions" />
-  <xs:complexType name="Customers">
+  <xs:element name="ReserversionWraper" nillable="true" type="tns:ReserversionWraper" />
+  <xs:complexType name="CustomerWraper">
     <xs:sequence>
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Reserversions" nillable="true" type="tns:ArrayOfReserversions" />
       <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Telephone" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Customers" nillable="true" type="tns:Customers" />
-  <xs:complexType name="Rooms">
+  <xs:element name="CustomerWraper" nillable="true" type="tns:CustomerWraper" />
+  <xs:complexType name="RoomWraper">
     <xs:sequence>
       <xs:element minOccurs="0" name="BathNo" type="xs:int" />
       <xs:element minOccurs="0" name="BedNo" type="xs:int" />
       <xs:element minOccurs="0" name="Floor" type="xs:int" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Number" type="xs:int" />
-      <xs:element minOccurs="0" name="Reserversions" nillable="true" type="tns:ArrayOfReserversions" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Rooms" nillable="true" type="tns:Rooms" />
-  <xs:complexType name="Users">
+  <xs:element name="RoomWraper" nillable="true" type="tns:RoomWraper" />
+  <xs:complexType name="UserWraper">
     <xs:sequence>
       <xs:element minOccurs="0" name="Firstname" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Reserversions" nillable="true" type="tns:ArrayOfReserversions" />
       <xs:element minOccurs="0" name="Surname" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Type" type="tns:UserType" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="Users" nillable="true" type="tns:Users" />
+  <xs:element name="UserWraper" nillable="true" type="tns:UserWraper" />
   <xs:simpleType name="UserType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="ADMIN">

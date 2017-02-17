@@ -24,7 +24,7 @@ namespace RezerwacjeClient
             InitializeComponent();
             ReserversionsServiceClient client = new ReserversionsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
-            //ReserverionsDataGrid.ItemsSource = client.FindAll(sessionId);
+            ReserverionsDataGrid.ItemsSource = client.FindAll(sessionId);
         }
 
         private void MenuExit_Click(object sender, RoutedEventArgs e)

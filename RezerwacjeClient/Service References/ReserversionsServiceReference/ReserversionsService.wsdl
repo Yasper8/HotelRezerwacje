@@ -37,6 +37,12 @@
   <wsdl:message name="IReserversionsService_FindAllCustomers_OutputMessage">
     <wsdl:part name="parameters" element="tns:FindAllCustomersResponse" />
   </wsdl:message>
+  <wsdl:message name="IReserversionsService_isRoomVacant_InputMessage">
+    <wsdl:part name="parameters" element="tns:isRoomVacant" />
+  </wsdl:message>
+  <wsdl:message name="IReserversionsService_isRoomVacant_OutputMessage">
+    <wsdl:part name="parameters" element="tns:isRoomVacantResponse" />
+  </wsdl:message>
   <wsdl:portType name="IReserversionsService">
     <wsdl:operation name="FindAll">
       <wsdl:input wsaw:Action="http://tempuri.org/IReserversionsService/FindAll" message="tns:IReserversionsService_FindAll_InputMessage" />
@@ -57,6 +63,10 @@
     <wsdl:operation name="FindAllCustomers">
       <wsdl:input wsaw:Action="http://tempuri.org/IReserversionsService/FindAllCustomers" message="tns:IReserversionsService_FindAllCustomers_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IReserversionsService/FindAllCustomersResponse" message="tns:IReserversionsService_FindAllCustomers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="isRoomVacant">
+      <wsdl:input wsaw:Action="http://tempuri.org/IReserversionsService/isRoomVacant" message="tns:IReserversionsService_isRoomVacant_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IReserversionsService/isRoomVacantResponse" message="tns:IReserversionsService_isRoomVacant_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IReserversionsService" type="tns:IReserversionsService">
@@ -99,6 +109,15 @@
     </wsdl:operation>
     <wsdl:operation name="FindAllCustomers">
       <soap:operation soapAction="http://tempuri.org/IReserversionsService/FindAllCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isRoomVacant">
+      <soap:operation soapAction="http://tempuri.org/IReserversionsService/isRoomVacant" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

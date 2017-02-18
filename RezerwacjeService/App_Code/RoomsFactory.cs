@@ -50,5 +50,18 @@ namespace RezerwacjeService
                 return dbContext.SaveChanges();
             }
         }
+
+        public bool IsRoomVacant(Reserversions reserversion)
+        {
+            using (var dbContext = new RezerwacjeDatabaseEntities())
+            {
+                bool vacant = !(from reserv in dbContext.Reserversions
+                               where reserv.Id != reserversion.Id
+                               && reserv.Rooms.Id == reserversion.Rooms.Id
+                               && (reserv.From < reserversion.To && reserv.To > reserversion.From)
+                               select reserv.Id).Any();
+                return vacant;
+            }
+        }
     }
 }

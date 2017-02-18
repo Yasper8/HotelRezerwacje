@@ -541,6 +541,12 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserversionsService/FindAllCustomers", ReplyAction="http://tempuri.org/IReserversionsService/FindAllCustomersResponse")]
         System.Threading.Tasks.Task<RezerwacjeClient.ReserversionsServiceReference.CustomerWraper[]> FindAllCustomersAsync(string sessionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserversionsService/isRoomVacant", ReplyAction="http://tempuri.org/IReserversionsService/isRoomVacantResponse")]
+        bool isRoomVacant(string sessionId, RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper reserversion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserversionsService/isRoomVacant", ReplyAction="http://tempuri.org/IReserversionsService/isRoomVacantResponse")]
+        System.Threading.Tasks.Task<bool> isRoomVacantAsync(string sessionId, RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper reserversion);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -608,6 +614,14 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
         
         public System.Threading.Tasks.Task<RezerwacjeClient.ReserversionsServiceReference.CustomerWraper[]> FindAllCustomersAsync(string sessionId) {
             return base.Channel.FindAllCustomersAsync(sessionId);
+        }
+        
+        public bool isRoomVacant(string sessionId, RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper reserversion) {
+            return base.Channel.isRoomVacant(sessionId, reserversion);
+        }
+        
+        public System.Threading.Tasks.Task<bool> isRoomVacantAsync(string sessionId, RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper reserversion) {
+            return base.Channel.isRoomVacantAsync(sessionId, reserversion);
         }
     }
 }

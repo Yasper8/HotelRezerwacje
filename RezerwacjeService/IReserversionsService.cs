@@ -24,6 +24,9 @@ namespace RezerwacjeService
 
         [OperationContract]
         List<CustomerWraper> FindAllCustomers(String sessionId);
+
+        [OperationContract]
+        Boolean isRoomVacant(String sessionId, ReserversionWraper reserversion);
     }
 
     [DataContract]

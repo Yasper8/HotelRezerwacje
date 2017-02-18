@@ -77,5 +77,15 @@ namespace RezerwacjeService
             List<Customers> customersEntites = CustomerFactory.Instance.FindAll();
             return customersEntites.Select(CustomerService.convert).ToList();
         }
+
+        public bool isRoomVacant(string sessionId, ReserversionWraper reserversions)
+        {
+            if (!UserAuthFactory.Instance.isAuth(sessionId))
+            {
+                return false;
+            }
+            Reserversions reserversionEntity = reconvert(reserversions);
+            return RoomsFactory.Instance.IsRoomVacant(reserversionEntity);
+        }
     }
 }

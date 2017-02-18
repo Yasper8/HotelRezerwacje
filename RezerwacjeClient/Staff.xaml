@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RezerwacjeClient"
         mc:Ignorable="d"
-        Title="Staff" Height="300" Width="300">
+        Title="Staff" Height="326.393" Width="695.894">
     <Grid>
         
     </Grid>

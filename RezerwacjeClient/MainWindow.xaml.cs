@@ -77,9 +77,14 @@ namespace RezerwacjeClient
             selectedReserversion.RoomId = ((RoomsComboBoxWraper)comboBoxRoom.SelectedItem).room.Id;
             selectedReserversion.Rooms = ((RoomsComboBoxWraper)comboBoxRoom.SelectedItem).room;
 
-            ReserversionsServiceClient client = new ReserversionsServiceClient();
+            if (!Validator.Valid(selectedReserversion))
+            {
+                return;
+            }
+
+            /*ReserversionsServiceClient client = new ReserversionsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
-            client.Save(sessionId, selectedReserversion);
+            client.Save(sessionId, selectedReserversion);*/
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
@@ -92,13 +97,18 @@ namespace RezerwacjeClient
             newReserversion.RoomId = ((RoomsComboBoxWraper)comboBoxRoom.SelectedItem).room.Id;
             newReserversion.Rooms = ((RoomsComboBoxWraper)comboBoxRoom.SelectedItem).room;
 
-            ReserversionsServiceClient client = new ReserversionsServiceClient();
+            if (!Validator.Valid(newReserversion))
+            {
+                return;
+            }
+
+            /*ReserversionsServiceClient client = new ReserversionsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
             int savedCustomersQuantity = client.Save(sessionId, newReserversion);
             if (savedCustomersQuantity > 0)
             {
                 ReserverionsDataGrid.ItemsSource = client.FindAll(sessionId);
-            }
+            }*/
         }
 
         private void bindRoomsComboBox()
@@ -163,6 +173,27 @@ namespace RezerwacjeClient
                 return customer.FirstName + " " + customer.Surname;
                 }
 
+        }
+
+        public class Validator
+        {
+            public static bool Valid(ReserversionWraper reserversion)
+            {
+                if (DateTime.Compare(reserversion.From, reserversion.To) > 0)
+                {
+                    MessageBox.Show("Data od nie może być poźniejsza od daty do");
+                    return false;
+                }
+
+                ReserversionsServiceClient client = new ReserversionsServiceClient();
+                String sessionId = (String)App.Current.Properties[App.sessionPropertyName]; 
+                if(!client.isRoomVacant(sessionId, reserversion))
+                {
+                    MessageBox.Show("Pokój zajęty w tym okresie");
+                    return false;
+                }
+                return true;
+            }
         }
 
     }

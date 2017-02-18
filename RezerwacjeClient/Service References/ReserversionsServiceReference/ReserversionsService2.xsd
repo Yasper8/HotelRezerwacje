@@ -73,4 +73,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="isRoomVacant">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/RezerwacjeService" minOccurs="0" name="reserversion" nillable="true" type="q6:ReserversionWraper" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="isRoomVacantResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="isRoomVacantResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

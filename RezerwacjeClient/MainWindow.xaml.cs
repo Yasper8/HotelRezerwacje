@@ -1,7 +1,4 @@
-﻿using RezerwacjeClient.CustomerServiceReference;
-using RezerwacjeClient.ReserversionsServiceReference;
-using RezerwacjeClient.RoomsServiceReference;
-using RezerwacjeClient.UsersServiceReference;
+﻿using RezerwacjeClient.ReserversionsServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +22,7 @@ namespace RezerwacjeClient
         {
             InitializeComponent();
             bindRoomsComboBox();
+            bindCusstomerComboBox();
             ReserversionsServiceClient client = new ReserversionsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
             ReserverionsDataGrid.ItemsSource = client.FindAll(sessionId);
@@ -71,35 +69,59 @@ namespace RezerwacjeClient
 
         private void buttonUpdate_Click(object sender, RoutedEventArgs e)
         {
+            ReserversionWraper selectedReserversion = (ReserversionWraper)ReserverionsDataGrid.SelectedItem;
 
+            selectedReserversion.From = (DateTime) datePickerFrom.SelectedDate;
+            selectedReserversion.To = (DateTime) datePickerTo.SelectedDate;
+            selectedReserversion.Customers = ((CustomerComboBoxWraper)comboBoxCustomer.SelectedItem).customer;
+            selectedReserversion.RoomId = ((RoomsComboBoxWraper)comboBoxRoom.SelectedItem).room.Id;
+            selectedReserversion.Rooms = ((RoomsComboBoxWraper)comboBoxRoom.SelectedItem).room;
+
+            ReserversionsServiceClient client = new ReserversionsServiceClient();
+            String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
+            client.Save(sessionId, selectedReserversion);
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
+            ReserversionWraper newReserversion = new ReserversionWraper();
 
+            newReserversion.From = (DateTime)datePickerFrom.SelectedDate;
+            newReserversion.To = (DateTime)datePickerTo.SelectedDate;
+            newReserversion.Customers = ((CustomerComboBoxWraper)comboBoxCustomer.SelectedItem).customer;
+            newReserversion.RoomId = ((RoomsComboBoxWraper)comboBoxRoom.SelectedItem).room.Id;
+            newReserversion.Rooms = ((RoomsComboBoxWraper)comboBoxRoom.SelectedItem).room;
+
+            ReserversionsServiceClient client = new ReserversionsServiceClient();
+            String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
+            int savedCustomersQuantity = client.Save(sessionId, newReserversion);
+            if (savedCustomersQuantity > 0)
+            {
+                ReserverionsDataGrid.ItemsSource = client.FindAll(sessionId);
+            }
         }
 
         private void bindRoomsComboBox()
         {
-            RoomsServiceClient client = new RoomsServiceClient();
+            ReserversionsServiceClient client = new ReserversionsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
-            comboBoxRoom.ItemsSource = client.FindAll(sessionId).Select(room => new RoomsComboBoxWraper(room)).ToList();
+            comboBoxRoom.ItemsSource = client.FindAllRooms(sessionId).Select(room => new RoomsComboBoxWraper(room)).ToList();
             comboBoxRoom.SelectedValuePath = "Id";
         }
 
         private void bindCusstomerComboBox()
         {
-            CustomerServiceClient client = new CustomerServiceClient();
+            ReserversionsServiceClient client = new ReserversionsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
-            comboBoxCustomer.ItemsSource = client.FindAll(sessionId).Select(customer => new CustomerComboBoxWraper(customer)).ToList();
+            comboBoxCustomer.ItemsSource = client.FindAllCustomers(sessionId).Select(customer => new CustomerComboBoxWraper(customer)).ToList();
             comboBoxCustomer.SelectedValuePath = "Id";
         }
 
         private class RoomsComboBoxWraper
         {
 
-            private readonly RoomsServiceReference.RoomWraper room;
-            public RoomsComboBoxWraper(RoomsServiceReference.RoomWraper room)
+            public readonly RoomWraper room;
+            public RoomsComboBoxWraper(RoomWraper room)
             {
                 this.room = room;
             }
@@ -122,8 +144,8 @@ namespace RezerwacjeClient
         private class CustomerComboBoxWraper
         {
 
-            private readonly CustomerServiceReference.CustomerWraper customer;
-            public CustomerComboBoxWraper(CustomerServiceReference.CustomerWraper customer)
+            public readonly CustomerWraper customer;
+            public CustomerComboBoxWraper(CustomerWraper customer)
             {
                 this.customer = customer;
             }

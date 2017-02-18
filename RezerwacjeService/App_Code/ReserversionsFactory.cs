@@ -46,9 +46,26 @@ namespace RezerwacjeService
         {
             using (var dbContext = new RezerwacjeDatabaseEntities())
             {
-                dbContext.Entry(reserversion).State = reserversion.Id == 0 ? EntityState.Added : EntityState.Modified;
+                Reserversions toSave = getEntityToSave(dbContext, reserversion);
+                toSave.From = reserversion.From;
+                toSave.To = reserversion.To;
+                toSave.Rooms = dbContext.Rooms.Single(r => r.Id == reserversion.Rooms.Id);
+                toSave.Customers = dbContext.Customers.Single(c => c.Id == reserversion.Customers.Id);
+                toSave.Users = dbContext.Users.Single(u => u.Id == reserversion.Users.Id);
+
+                dbContext.Entry(toSave).State = toSave.Id == 0 ? EntityState.Added : EntityState.Modified;
                 return dbContext.SaveChanges();
             }
+        }
+
+        private Reserversions getEntityToSave(RezerwacjeDatabaseEntities dbContext, Reserversions reserversion)
+        {
+            if(reserversion.Id == 0)
+            {
+                return reserversion;
+            }
+            
+            return dbContext.Reserversions.Single(r => r.Id == reserversion.Id);
         }
 
         private IQueryable<Reserversions> getWithDependences(RezerwacjeDatabaseEntities dbContext)
@@ -57,3 +74,4 @@ namespace RezerwacjeService
         }
     }
 }
+   

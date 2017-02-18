@@ -12,6 +12,7 @@
       <xs:element minOccurs="0" name="Customers" nillable="true" type="tns:CustomerWraper" />
       <xs:element minOccurs="0" name="From" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="RoomId" type="xs:int" />
       <xs:element minOccurs="0" name="Rooms" nillable="true" type="tns:RoomWraper" />
       <xs:element minOccurs="0" name="To" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Users" nillable="true" type="tns:UserWraper" />
@@ -68,4 +69,16 @@
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="UserType" nillable="true" type="tns:UserType" />
+  <xs:complexType name="ArrayOfRoomWraper">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="RoomWraper" nillable="true" type="tns:RoomWraper" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfRoomWraper" nillable="true" type="tns:ArrayOfRoomWraper" />
+  <xs:complexType name="ArrayOfCustomerWraper">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CustomerWraper" nillable="true" type="tns:CustomerWraper" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCustomerWraper" nillable="true" type="tns:ArrayOfCustomerWraper" />
 </xs:schema>

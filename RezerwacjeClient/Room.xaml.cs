@@ -64,8 +64,8 @@ namespace RezerwacjeClient
 
             RoomsServiceClient client = new RoomsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
-            int savedCustomersQuantity = client.Save(sessionId, room);
-            if (savedCustomersQuantity == 1)
+            int savedRoomsQuantity = client.Save(sessionId, room);
+            if (savedRoomsQuantity == 1)
             {
                 CustomersDataGrid.ItemsSource = client.FindAll(sessionId);
             }

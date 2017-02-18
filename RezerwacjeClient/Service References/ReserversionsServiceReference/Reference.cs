@@ -32,6 +32,9 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int RoomIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private RezerwacjeClient.ReserversionsServiceReference.RoomWraper RoomsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -85,6 +88,19 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
                 if ((this.IdField.Equals(value) != true)) {
                     this.IdField = value;
                     this.RaisePropertyChanged("Id");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int RoomId {
+            get {
+                return this.RoomIdField;
+            }
+            set {
+                if ((this.RoomIdField.Equals(value) != true)) {
+                    this.RoomIdField = value;
+                    this.RaisePropertyChanged("RoomId");
                 }
             }
         }
@@ -513,6 +529,18 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserversionsService/Save", ReplyAction="http://tempuri.org/IReserversionsService/SaveResponse")]
         System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper reserversion);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserversionsService/FindAllRooms", ReplyAction="http://tempuri.org/IReserversionsService/FindAllRoomsResponse")]
+        RezerwacjeClient.ReserversionsServiceReference.RoomWraper[] FindAllRooms(string sessionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserversionsService/FindAllRooms", ReplyAction="http://tempuri.org/IReserversionsService/FindAllRoomsResponse")]
+        System.Threading.Tasks.Task<RezerwacjeClient.ReserversionsServiceReference.RoomWraper[]> FindAllRoomsAsync(string sessionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserversionsService/FindAllCustomers", ReplyAction="http://tempuri.org/IReserversionsService/FindAllCustomersResponse")]
+        RezerwacjeClient.ReserversionsServiceReference.CustomerWraper[] FindAllCustomers(string sessionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReserversionsService/FindAllCustomers", ReplyAction="http://tempuri.org/IReserversionsService/FindAllCustomersResponse")]
+        System.Threading.Tasks.Task<RezerwacjeClient.ReserversionsServiceReference.CustomerWraper[]> FindAllCustomersAsync(string sessionId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -564,6 +592,22 @@ namespace RezerwacjeClient.ReserversionsServiceReference {
         
         public System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper reserversion) {
             return base.Channel.SaveAsync(sessionId, reserversion);
+        }
+        
+        public RezerwacjeClient.ReserversionsServiceReference.RoomWraper[] FindAllRooms(string sessionId) {
+            return base.Channel.FindAllRooms(sessionId);
+        }
+        
+        public System.Threading.Tasks.Task<RezerwacjeClient.ReserversionsServiceReference.RoomWraper[]> FindAllRoomsAsync(string sessionId) {
+            return base.Channel.FindAllRoomsAsync(sessionId);
+        }
+        
+        public RezerwacjeClient.ReserversionsServiceReference.CustomerWraper[] FindAllCustomers(string sessionId) {
+            return base.Channel.FindAllCustomers(sessionId);
+        }
+        
+        public System.Threading.Tasks.Task<RezerwacjeClient.ReserversionsServiceReference.CustomerWraper[]> FindAllCustomersAsync(string sessionId) {
+            return base.Channel.FindAllCustomersAsync(sessionId);
         }
     }
 }

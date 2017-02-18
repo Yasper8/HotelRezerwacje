@@ -201,7 +201,13 @@
     <None Include="Service References\ReserversionsServiceReference\ReserversionsService2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\ReserversionsServiceReference\RezerwacjeClient.ReserversionsServiceReference.CustomerWraper.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ReserversionsServiceReference\RezerwacjeClient.ReserversionsServiceReference.ReserversionWraper.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ReserversionsServiceReference\RezerwacjeClient.ReserversionsServiceReference.RoomWraper.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\RoomsServiceReference\RezerwacjeClient.RoomsServiceReference.RoomWraper.datasource">

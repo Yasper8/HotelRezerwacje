@@ -44,5 +44,10 @@ namespace RezerwacjeService
         {
             return sessions.ContainsKey(sessionId);
         }
+
+        public Users getUser(String SessionId)
+        {
+            return sessions[SessionId];
+        }
     }
 }

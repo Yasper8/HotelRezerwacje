@@ -45,4 +45,32 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="FindAllRooms">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindAllRoomsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/RezerwacjeService" minOccurs="0" name="FindAllRoomsResult" nillable="true" type="q4:ArrayOfRoomWraper" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindAllCustomers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="sessionId" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FindAllCustomersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/RezerwacjeService" minOccurs="0" name="FindAllCustomersResult" nillable="true" type="q5:ArrayOfCustomerWraper" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

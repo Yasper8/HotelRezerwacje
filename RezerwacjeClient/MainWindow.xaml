@@ -26,7 +26,7 @@
                 <DataGridTextColumn Header="Od" Binding="{Binding From}" Width="0.7*" />
                 <DataGridTextColumn Header="Do" Binding="{Binding To}" Width="0.7*" />
                 <DataGridTextColumn Header="Nr pokoju" Binding="{Binding Rooms.Number}" Width="0.7*" />
-                <DataGridTextColumn Header="Imię klienta" Binding="{Binding Customers.Firstname}" Width="1*" />
+                <DataGridTextColumn Header="Imię klienta" Binding="{Binding Customers.FirstName}" Width="1*" />
                 <DataGridTextColumn Header="Nazwisko Klenta" Binding="{Binding Customers.Surname}" Width="1*" />
                 <DataGridTextColumn Header="Imię Pracownika" Binding="{Binding Users.Firstname}" Width="1*" />
                 <DataGridTextColumn Header="Nazwisko Pracownika" Binding="{Binding Users.Surname}" Width="1*" />

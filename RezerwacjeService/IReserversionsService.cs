@@ -18,6 +18,12 @@ namespace RezerwacjeService
 
         [OperationContract]
         int Save(String sessionId, ReserversionWraper reserversion);
+
+        [OperationContract]
+        List<RoomWraper> FindAllRooms(String sessionId);
+
+        [OperationContract]
+        List<CustomerWraper> FindAllCustomers(String sessionId);
     }
 
     [DataContract]
@@ -29,6 +35,8 @@ namespace RezerwacjeService
         public DateTime From { get; set; }
         [DataMember]
         public DateTime To { get; set; }
+        [DataMember]
+        public int RoomId { get; set; }
         [DataMember]
         public CustomerWraper Customers { get; set; }
         [DataMember]

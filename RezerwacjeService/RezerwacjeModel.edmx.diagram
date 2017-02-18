@@ -8,7 +8,7 @@
         <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Customers" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
         <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Rooms" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Users" Width="1.5" PointX="0.75" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Reserversions" Width="1.5" PointX="5.375" PointY="3.25" />
+        <EntityTypeShape EntityType="RezerwacjeDatabaseModel.Reserversions" Width="1.5" PointX="4.75" PointY="1.25" />
         <AssociationConnector Association="RezerwacjeDatabaseModel.FK_Customer" />
         <AssociationConnector Association="RezerwacjeDatabaseModel.FK_Modyfied" />
         <AssociationConnector Association="RezerwacjeDatabaseModel.FK_Room" />

@@ -24,7 +24,6 @@ namespace RezerwacjeService
             From = reserversion.From,
             To = reserversion.To,
             Customers = CustomerService.reconvert(reserversion.Customers),
-            Users = UsersService.reconvert(reserversion.Users),
             Rooms = RoomsService.reconvert(reserversion.Rooms)
         };
 
@@ -55,7 +54,28 @@ namespace RezerwacjeService
                 return 0;
             }
             Reserversions reserversionEntity = reconvert(reserversions);
+            reserversionEntity.Users = UserAuthFactory.Instance.getUser(sessionId);
             return ReserversionsFactory.Instance.Save(reserversionEntity);
+        }
+
+        public List<RoomWraper> FindAllRooms(string sessionId)
+        {
+            if (!UserAuthFactory.Instance.isAuth(sessionId))
+            {
+                return null;
+            }
+            List<Rooms> roomsEntities = RoomsFactory.Instance.FindAll();
+            return roomsEntities.Select(RoomsService.convert).ToList();
+        }
+
+        public List<CustomerWraper> FindAllCustomers(string sessionId)
+        {
+            if (!UserAuthFactory.Instance.isAuth(sessionId))
+            {
+                return null;
+            }
+            List<Customers> customersEntites = CustomerFactory.Instance.FindAll();
+            return customersEntites.Select(CustomerService.convert).ToList();
         }
     }
 }

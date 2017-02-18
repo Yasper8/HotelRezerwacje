@@ -40,6 +40,15 @@ namespace RezerwacjeService
             return null;
         }
 
+        public bool logoutUser(String sessionId)
+        {
+            if (sessionId == null)
+            {
+                return true;
+            }
+            return sessions.Remove(sessionId);
+        }
+
         public bool isAuth(String sessionId)
         {
             return sessions.ContainsKey(sessionId);

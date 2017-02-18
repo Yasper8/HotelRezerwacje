@@ -36,6 +36,7 @@ namespace RezerwacjeClient
             if(sessionId != null)
             {
                 App.Current.Properties[App.sessionPropertyName] = sessionId;
+                App.Current.Properties[App.loginPropertyName] = login;
 
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();

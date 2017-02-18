@@ -6,7 +6,7 @@
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         xmlns:local="clr-namespace:RezerwacjeClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="501.906" Width="1051.539">
+        Title="MainWindow" Height="501.906" Width="1051.539" Closing="MainWindow_Closing">
     <Grid>
         <Menu IsMainMenu="True">
             <MenuItem Header="_Plik">
@@ -18,6 +18,7 @@
             <MenuItem Header="_Edytuj">
                 <MenuItem x:Name="MenuCustomer" Header="_Klient" Click="MenuCustomer_Click" />
                 <MenuItem x:Name="MenuRoom" Header="_Pokój" Click="MenuRoom_Click" />
+                <MenuItem x:Name="MenuStaff" Header="_Pracownicy" Click="MenuStaff_Click" Visibility="Collapsed"/>
             </MenuItem>
         </Menu>
 

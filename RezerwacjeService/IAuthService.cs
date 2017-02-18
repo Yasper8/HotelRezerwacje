@@ -13,5 +13,7 @@ namespace RezerwacjeService
     {
         [OperationContract]
         String Login(String login, String password);
+        [OperationContract]
+        bool Logout(String sessionId);
     }
 }

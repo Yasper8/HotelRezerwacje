@@ -17,6 +17,8 @@ namespace RezerwacjeService
         UserWraper FindByLogin(String sessionId, String login);
         [OperationContract]
         bool isAdmin(String sessionID, String login);
+        [OperationContract]
+        int Save(String sessionId, UserWraper room);
     }
 
     [DataContract]

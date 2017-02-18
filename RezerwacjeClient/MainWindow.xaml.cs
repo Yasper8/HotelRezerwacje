@@ -1,4 +1,6 @@
-﻿using RezerwacjeClient.ReserversionsServiceReference;
+﻿using RezerwacjeClient.AuthServiceReference;
+using RezerwacjeClient.ReserversionsServiceReference;
+using RezerwacjeClient.UsersServiceReference;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +28,13 @@ namespace RezerwacjeClient
             ReserversionsServiceClient client = new ReserversionsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
             ReserverionsDataGrid.ItemsSource = client.FindAll(sessionId);
+
+            UsersServiceClient usersClient = new UsersServiceClient();
+            String login = (String)App.Current.Properties[App.loginPropertyName];
+            if (usersClient.isAdmin(sessionId, login))
+            {
+                MenuStaff.Visibility = Visibility.Visible;
+            }
         }
 
         private void MenuExit_Click(object sender, RoutedEventArgs e)
@@ -33,10 +42,19 @@ namespace RezerwacjeClient
             Close();
         }
 
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            AuthServiceClient authClient = new AuthServiceClient();
+            String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
+            if (authClient.Logout(sessionId))
+            {
+                App.Current.Properties[App.sessionPropertyName] = null;
+                App.Current.Properties[App.loginPropertyName] = null;
+            }
+        }
+
         private void MenuLogout_Click(object sender, RoutedEventArgs e)
         {
-            App.Current.Properties[App.sessionPropertyName] = null;
-
             Login loginWindow = new Login();
             loginWindow.Show();
             this.Close();
@@ -52,6 +70,12 @@ namespace RezerwacjeClient
         {
             Room roomWindow = new Room();
             roomWindow.Show();
+        }
+
+        private void MenuStaff_Click(object sender, RoutedEventArgs e)
+        {
+            Staff staffWindow = new Staff();
+            staffWindow.Show();
         }
 
         private void ReserversionsGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -82,9 +106,9 @@ namespace RezerwacjeClient
                 return;
             }
 
-            /*ReserversionsServiceClient client = new ReserversionsServiceClient();
+            ReserversionsServiceClient client = new ReserversionsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
-            client.Save(sessionId, selectedReserversion);*/
+            client.Save(sessionId, selectedReserversion);
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
@@ -102,13 +126,13 @@ namespace RezerwacjeClient
                 return;
             }
 
-            /*ReserversionsServiceClient client = new ReserversionsServiceClient();
+            ReserversionsServiceClient client = new ReserversionsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
             int savedCustomersQuantity = client.Save(sessionId, newReserversion);
             if (savedCustomersQuantity > 0)
             {
                 ReserverionsDataGrid.ItemsSource = client.FindAll(sessionId);
-            }*/
+            }
         }
 
         private void bindRoomsComboBox()
@@ -195,6 +219,5 @@ namespace RezerwacjeClient
                 return true;
             }
         }
-
     }
 }

@@ -21,7 +21,6 @@ namespace RezerwacjeClient
         public Room()
         {
             InitializeComponent();
-            InitializeComponent();
             RoomsServiceClient client = new RoomsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
             CustomersDataGrid.ItemsSource = client.FindAll(sessionId);

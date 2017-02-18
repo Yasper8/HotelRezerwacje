@@ -25,6 +25,12 @@
   <wsdl:message name="IUsersService_isAdmin_OutputMessage">
     <wsdl:part name="parameters" element="tns:isAdminResponse" />
   </wsdl:message>
+  <wsdl:message name="IUsersService_Save_InputMessage">
+    <wsdl:part name="parameters" element="tns:Save" />
+  </wsdl:message>
+  <wsdl:message name="IUsersService_Save_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveResponse" />
+  </wsdl:message>
   <wsdl:portType name="IUsersService">
     <wsdl:operation name="FindAll">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsersService/FindAll" message="tns:IUsersService_FindAll_InputMessage" />
@@ -37,6 +43,10 @@
     <wsdl:operation name="isAdmin">
       <wsdl:input wsaw:Action="http://tempuri.org/IUsersService/isAdmin" message="tns:IUsersService_isAdmin_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IUsersService/isAdminResponse" message="tns:IUsersService_isAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <wsdl:input wsaw:Action="http://tempuri.org/IUsersService/Save" message="tns:IUsersService_Save_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IUsersService/SaveResponse" message="tns:IUsersService_Save_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IUsersService" type="tns:IUsersService">
@@ -61,6 +71,15 @@
     </wsdl:operation>
     <wsdl:operation name="isAdmin">
       <soap:operation soapAction="http://tempuri.org/IUsersService/isAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Save">
+      <soap:operation soapAction="http://tempuri.org/IUsersService/Save" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

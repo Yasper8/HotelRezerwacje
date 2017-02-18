@@ -7,6 +7,33 @@
         mc:Ignorable="d"
         Title="Staff" Height="326.393" Width="695.894">
     <Grid>
-        
+        <DataGrid x:Name="StaffDataGrid" HorizontalAlignment="Left" Height="275" Margin="263,10,0,0" VerticalAlignment="Top" Width="415" AutoGenerateColumns="False" IsReadOnly="True" SelectionChanged="StaffGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Login" Binding="{Binding Login}" Width="1*" />
+                <DataGridTextColumn Header="Nazwisko" Binding="{Binding Surname}" Width="1*" />
+                <DataGridTextColumn Header="Imię" Binding="{Binding Firstname}" Width="1*" />
+                <DataGridTextColumn Header="Typ" Binding="{Binding Type}" Width="1*" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid HorizontalAlignment="Left" Height="275" Margin="10,10,0,0" VerticalAlignment="Top" Width="248">
+            <TextBox x:Name="textBoxLogin" HorizontalAlignment="Left" Height="23" Margin="118,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.406,-0.059"/>
+            <TextBox x:Name="textBoxFirstname" HorizontalAlignment="Left" Height="23" Margin="118,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="textBoxSurname" HorizontalAlignment="Left" Height="23" Margin="118,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+            <ComboBox x:Name="ComboBoxType" HorizontalAlignment="Left" Height="23" Margin="118,94,0,0" VerticalAlignment="Top" Width="120"/>
+            <PasswordBox x:Name="textBoxPass" HorizontalAlignment="Left" Height="23" Margin="118,160,0,0" VerticalAlignment="Top" Width="120"/>
+            <PasswordBox x:Name="textBoxPassConfirm" HorizontalAlignment="Left" Height="23" Margin="118,188,0,0" VerticalAlignment="Top" Width="120"/>
+
+            <Label x:Name="labelLogin" Content="Login" HorizontalAlignment="Left" Margin="32,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.997,0.629" Width="68"/>
+            <Label x:Name="labelFirstname" Content="Imię" HorizontalAlignment="Left" Margin="32,38,0,0" VerticalAlignment="Top" Width="62"/>
+            <Label x:Name="labelSurname" Content="Naziwsko" HorizontalAlignment="Left" Margin="32,66,0,0" VerticalAlignment="Top" Width="86"/>
+            <Label x:Name="labelType" Content="Typ" HorizontalAlignment="Left" Margin="32,94,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.094,0.611" Width="81"/>
+            <Label x:Name="labelPass" Content="Hasło" HorizontalAlignment="Left" Margin="32,160,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.094,0.611" Width="81"/>
+            <Label x:Name="labelPassConf" Content="Potwierdz hasło" HorizontalAlignment="Left" Margin="32,188,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.094,0.611" Width="81"/>
+            
+            <Button x:Name="buttonUpdate" Content="Zapisz" HorizontalAlignment="Left" Margin="163,245,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdate_Click"/>
+            <Button x:Name="buttonAdd" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="83,245,0,0" Click="buttonAdd_Click"/>
+        </Grid>
+
+
     </Grid>
 </Window>

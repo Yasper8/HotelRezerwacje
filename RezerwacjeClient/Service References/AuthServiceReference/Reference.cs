@@ -20,6 +20,12 @@ namespace RezerwacjeClient.AuthServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/Login", ReplyAction="http://tempuri.org/IAuthService/LoginResponse")]
         System.Threading.Tasks.Task<string> LoginAsync(string login, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/Logout", ReplyAction="http://tempuri.org/IAuthService/LogoutResponse")]
+        bool Logout(string sessionId);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthService/Logout", ReplyAction="http://tempuri.org/IAuthService/LogoutResponse")]
+        System.Threading.Tasks.Task<bool> LogoutAsync(string sessionId);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +61,14 @@ namespace RezerwacjeClient.AuthServiceReference {
         
         public System.Threading.Tasks.Task<string> LoginAsync(string login, string password) {
             return base.Channel.LoginAsync(login, password);
+        }
+        
+        public bool Logout(string sessionId) {
+            return base.Channel.Logout(sessionId);
+        }
+        
+        public System.Threading.Tasks.Task<bool> LogoutAsync(string sessionId) {
+            return base.Channel.LogoutAsync(sessionId);
         }
     }
 }

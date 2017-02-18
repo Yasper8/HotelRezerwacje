@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.SessionState;
@@ -48,6 +49,15 @@ namespace RezerwacjeService.Factory
             {
                 Boolean userIsAdmin = (from u in dbContext.Users where u.Login == login && u.Type == UserType.ADMIN select u).Any();
                 return userIsAdmin;
+            }
+        }
+
+        public int Save(Users user)
+        {
+            using (var dbContext = new RezerwacjeDatabaseEntities())
+            {
+                dbContext.Entry(user).State = user.Id == 0 ? EntityState.Added : EntityState.Modified;
+                return dbContext.SaveChanges();
             }
         }
     }

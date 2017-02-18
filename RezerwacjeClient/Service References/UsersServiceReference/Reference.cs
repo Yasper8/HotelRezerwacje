@@ -170,6 +170,12 @@ namespace RezerwacjeClient.UsersServiceReference {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/isAdmin", ReplyAction="http://tempuri.org/IUsersService/isAdminResponse")]
         System.Threading.Tasks.Task<bool> isAdminAsync(string sessionID, string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/Save", ReplyAction="http://tempuri.org/IUsersService/SaveResponse")]
+        int Save(string sessionId, RezerwacjeClient.UsersServiceReference.UserWraper room);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUsersService/Save", ReplyAction="http://tempuri.org/IUsersService/SaveResponse")]
+        System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.UsersServiceReference.UserWraper room);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -221,6 +227,14 @@ namespace RezerwacjeClient.UsersServiceReference {
         
         public System.Threading.Tasks.Task<bool> isAdminAsync(string sessionID, string login) {
             return base.Channel.isAdminAsync(sessionID, login);
+        }
+        
+        public int Save(string sessionId, RezerwacjeClient.UsersServiceReference.UserWraper room) {
+            return base.Channel.Save(sessionId, room);
+        }
+        
+        public System.Threading.Tasks.Task<int> SaveAsync(string sessionId, RezerwacjeClient.UsersServiceReference.UserWraper room) {
+            return base.Channel.SaveAsync(sessionId, room);
         }
     }
 }

@@ -32,6 +32,7 @@ namespace RezerwacjeService
             Surname = userWraper.Surname
         };
 
+
         List<UserWraper> IUsersService.FindAll(String sessionId)
         {
             if (!UserAuthFactory.Instance.isAuth(sessionId))
@@ -59,6 +60,17 @@ namespace RezerwacjeService
                 return false;
             }
             return UsersFactory.Instance.isAdmin(login);
+        }
+
+
+        public int Save(string sessionId, UserWraper user)
+        {
+            if (!UserAuthFactory.Instance.isAuth(sessionId))
+            {
+                return 0;
+            }
+            Users userEntity = reconvert(user);
+            return UsersFactory.Instance.Save(userEntity);
         }
     }
 }

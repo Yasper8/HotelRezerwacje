@@ -14,5 +14,6 @@ namespace RezerwacjeClient
     public partial class App : Application
     {
         public const String sessionPropertyName = "SessionId";
+        public const String loginPropertyName = "Login";
     }
 }

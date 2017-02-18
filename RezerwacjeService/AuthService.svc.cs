@@ -13,5 +13,10 @@ namespace RezerwacjeService
         {
             return UserAuthFactory.Instance.loginUser(login, password);
         }
+
+        public bool Logout(string sessionId)
+        {
+            return UserAuthFactory.Instance.logoutUser(sessionId);
+        }
     }
 }

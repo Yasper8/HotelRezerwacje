@@ -24,7 +24,9 @@ namespace RezerwacjeClient
         {
             InitializeComponent();
             bindRoomsComboBox();
-            bindCusstomerComboBox();
+            bindCusstomerComboBox();datePickerFrom.SelectedDate = DateTime.Today;
+            datePickerTo.SelectedDate = DateTime.Today;
+			
             ReserversionsServiceClient client = new ReserversionsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
             ReserverionsDataGrid.ItemsSource = client.FindAll(sessionId);

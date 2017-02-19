@@ -135,6 +135,13 @@ namespace RezerwacjeClient
             }
         }
 
+        private void buttonRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            ReserversionsServiceClient client = new ReserversionsServiceClient();
+            String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
+            ReserverionsDataGrid.ItemsSource = client.FindAll(sessionId);
+        }
+
         private void bindRoomsComboBox()
         {
             ReserversionsServiceClient client = new ReserversionsServiceClient();

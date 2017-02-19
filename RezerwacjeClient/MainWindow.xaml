@@ -33,7 +33,7 @@
                 <DataGridTextColumn Header="Nazwisko Pracownika" Binding="{Binding Users.Surname}" Width="1*" />
             </DataGrid.Columns>
         </DataGrid>
-        <Grid HorizontalAlignment="Left" Height="277" Margin="10,34,0,0" VerticalAlignment="Top" Width="277">
+        <Grid HorizontalAlignment="Left" Height="322" Margin="10,34,0,0" VerticalAlignment="Top" Width="277">
             <DatePicker x:Name="datePickerFrom" HorizontalAlignment="Left" Height="23" Margin="105,10,0,0" VerticalAlignment="Top" Width="153" RenderTransformOrigin="0.406,-0.059"/>
             <DatePicker x:Name="datePickerTo" HorizontalAlignment="Left" Height="23" Margin="105,38,0,0" VerticalAlignment="Top" Width="153"/>
             <ComboBox x:Name="comboBoxCustomer" HorizontalAlignment="Left" Height="23" Margin="105,66,0,0" VerticalAlignment="Top" Width="153"/>
@@ -42,8 +42,9 @@
             <Label x:Name="labelTo" Content="Data do" HorizontalAlignment="Left" Margin="32,38,0,0" VerticalAlignment="Top" Width="62"/>
             <Label x:Name="labelCustomer" Content="Klient" HorizontalAlignment="Left" Margin="32,66,0,0" VerticalAlignment="Top" Width="86"/>
             <Label x:Name="labelRoom" Content="Pokój" HorizontalAlignment="Left" Margin="32,94,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.094,0.611" Width="81"/>
-            <Button x:Name="buttonUpdate" Content="Zapisz" HorizontalAlignment="Left" Margin="163,245,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdate_Click"/>
-            <Button x:Name="buttonAdd" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="83,245,0,0" Click="buttonAdd_Click"/>
+            <Button x:Name="buttonUpdate" Content="Zapisz" HorizontalAlignment="Left" Margin="192,245,0,0" VerticalAlignment="Top" Width="75" Click="buttonUpdate_Click"/>
+            <Button x:Name="buttonAdd" Content="Dodaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="112,245,0,0" Click="buttonAdd_Click"/>
+            <Button x:Name="buttonRefresh" Content="Odśwież" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="192,292,0,0" Click="buttonRefresh_Click"/>
         </Grid>
     </Grid>
 

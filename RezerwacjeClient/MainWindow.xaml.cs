@@ -95,40 +95,34 @@ namespace RezerwacjeClient
         {
             ReserversionWraper selectedReserversion = (ReserversionWraper)ReserverionsDataGrid.SelectedItem;
 
-            selectedReserversion.From = (DateTime) datePickerFrom.SelectedDate;
-            selectedReserversion.To = (DateTime) datePickerTo.SelectedDate;
-            selectedReserversion.Customers = ((CustomerComboBoxWraper)comboBoxCustomer.SelectedItem).customer;
-            selectedReserversion.RoomId = ((RoomsComboBoxWraper)comboBoxRoom.SelectedItem).room.Id;
-            selectedReserversion.Rooms = ((RoomsComboBoxWraper)comboBoxRoom.SelectedItem).room;
-
-            if (!Validator.Valid(selectedReserversion))
-            {
-                return;
-            }
-
-            ReserversionsServiceClient client = new ReserversionsServiceClient();
-            String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
-            client.Save(sessionId, selectedReserversion);
+            ReserversionWraper newReserversion = new ReserversionWraper();
+            newReserversion.Id = selectedReserversion.Id;
+            FillAndSave(newReserversion);
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
             ReserversionWraper newReserversion = new ReserversionWraper();
+            FillAndSave(newReserversion);
 
-            newReserversion.From = (DateTime)datePickerFrom.SelectedDate;
-            newReserversion.To = (DateTime)datePickerTo.SelectedDate;
-            newReserversion.Customers = ((CustomerComboBoxWraper)comboBoxCustomer.SelectedItem).customer;
-            newReserversion.RoomId = ((RoomsComboBoxWraper)comboBoxRoom.SelectedItem).room.Id;
-            newReserversion.Rooms = ((RoomsComboBoxWraper)comboBoxRoom.SelectedItem).room;
+        }
 
-            if (!Validator.Valid(newReserversion))
+        private void FillAndSave(ReserversionWraper reserversion)
+        {
+            reserversion.From = (DateTime)datePickerFrom.SelectedDate;
+            reserversion.To = (DateTime)datePickerTo.SelectedDate;
+            reserversion.Customers = ((CustomerComboBoxWraper)comboBoxCustomer.SelectedItem).customer;
+            reserversion.RoomId = ((RoomsComboBoxWraper)comboBoxRoom.SelectedItem).room.Id;
+            reserversion.Rooms = ((RoomsComboBoxWraper)comboBoxRoom.SelectedItem).room;
+
+            if (!Validator.Valid(reserversion))
             {
                 return;
             }
 
             ReserversionsServiceClient client = new ReserversionsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
-            int savedCustomersQuantity = client.Save(sessionId, newReserversion);
+            int savedCustomersQuantity = client.Save(sessionId, reserversion);
             if (savedCustomersQuantity > 0)
             {
                 ReserverionsDataGrid.ItemsSource = client.FindAll(sessionId);
@@ -140,6 +134,14 @@ namespace RezerwacjeClient
             ReserversionsServiceClient client = new ReserversionsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
             ReserverionsDataGrid.ItemsSource = client.FindAll(sessionId);
+
+            int selectedRoom = (int)comboBoxRoom.SelectedValue;
+            comboBoxRoom.ItemsSource = client.FindAllRooms(sessionId).Select(room => new RoomsComboBoxWraper(room)).ToList();
+            comboBoxRoom.SelectedValue = selectedRoom;
+
+            int selectedCustomer = (int)comboBoxCustomer.SelectedValue;
+            comboBoxCustomer.ItemsSource = client.FindAllCustomers(sessionId).Select(customer => new CustomerComboBoxWraper(customer)).ToList();
+            comboBoxCustomer.SelectedValue = selectedCustomer;
         }
 
         private void bindRoomsComboBox()

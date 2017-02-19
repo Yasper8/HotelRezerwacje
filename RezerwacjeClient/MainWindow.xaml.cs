@@ -94,6 +94,11 @@ namespace RezerwacjeClient
         private void buttonUpdate_Click(object sender, RoutedEventArgs e)
         {
             ReserversionWraper selectedReserversion = (ReserversionWraper)ReserverionsDataGrid.SelectedItem;
+            if(selectedReserversion == null)
+            {
+                MessageBox.Show("Nie zaznaczono rezerwacji do edycji");
+                return;
+            }
 
             ReserversionWraper newReserversion = new ReserversionWraper();
             newReserversion.Id = selectedReserversion.Id;
@@ -148,16 +153,20 @@ namespace RezerwacjeClient
         {
             ReserversionsServiceClient client = new ReserversionsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
-            comboBoxRoom.ItemsSource = client.FindAllRooms(sessionId).Select(room => new RoomsComboBoxWraper(room)).ToList();
+            List<RoomsComboBoxWraper> rooms = client.FindAllRooms(sessionId).Select(room => new RoomsComboBoxWraper(room)).ToList();
+            comboBoxRoom.ItemsSource = rooms;
             comboBoxRoom.SelectedValuePath = "Id";
+            comboBoxRoom.SelectedItem = rooms.FirstOrDefault();
         }
 
         private void bindCusstomerComboBox()
         {
             ReserversionsServiceClient client = new ReserversionsServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
-            comboBoxCustomer.ItemsSource = client.FindAllCustomers(sessionId).Select(customer => new CustomerComboBoxWraper(customer)).ToList();
+            List< CustomerComboBoxWraper> customers = client.FindAllCustomers(sessionId).Select(customer => new CustomerComboBoxWraper(customer)).ToList();
+            comboBoxCustomer.ItemsSource = customers;
             comboBoxCustomer.SelectedValuePath = "Id";
+            comboBoxCustomer.SelectedItem = customers.FirstOrDefault();
         }
 
         private class RoomsComboBoxWraper

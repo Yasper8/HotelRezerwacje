@@ -82,7 +82,12 @@ namespace RezerwacjeClient
 
             UsersServiceClient client = new UsersServiceClient();
             String sessionId = (String)App.Current.Properties[App.sessionPropertyName];
-            client.Save(sessionId, newUser);
+            int savedQuantity = client.Save(sessionId, newUser);
+            if (savedQuantity > 0)
+            {
+                StaffDataGrid.ItemsSource = client.FindAll(sessionId);
+            }
+
         }
     }
 
